@@ -11,7 +11,7 @@ function ContadorDobleBest() {
 
     function handleIncrement(name){
         setFriends({...friends,
-             [name]: friends.name + 1})
+             [name]: friends[name] + 1})
     }
 
   return (
