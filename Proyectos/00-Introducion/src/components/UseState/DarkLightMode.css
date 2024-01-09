@@ -1,0 +1,17 @@
+
+
+.default{
+    background: blue;
+    padding: 20px;
+    transition: background 0.4s ease-in-out;
+}
+
+.dark{
+    background: black;
+    color: #fff;
+}
+
+.ligth{
+    background: #fff;
+    color: black;
+}
