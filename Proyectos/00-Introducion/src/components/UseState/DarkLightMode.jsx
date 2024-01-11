@@ -15,7 +15,8 @@ function DarkLightMode() {
                 <h1>Cambio de color Tema</h1>
                 <button onClick={toggleTheme}> {darkMode ? "Modo Oscuro" : "Modo Claro"}</button>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos dolores assumenda molestiae tenetur ullam nam quia iure molestias nulla voluptate?</p>
-            </div>
+            </div> 
+      
         </>
     );
 }

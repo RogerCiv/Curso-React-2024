@@ -1,10 +1,14 @@
 // IMPORTS
 import './App.css'
 
-import Contador from './components/UseState/Contador'
-import ContadorDoble from './components/UseState/ContadorDoble'
-import ContadorDobleBest from './components/UseState/ContadorDobleBest'
-import DarkLightMode from './components/UseState/DarkLightMode'
+// import Contador from './components/UseState/Contador'
+// import ContadorDoble from './components/UseState/ContadorDoble'
+// import ContadorDobleBest from './components/UseState/ContadorDobleBest'
+// import DarkLightMode from './components/UseState/DarkLightMode'
+// import Form from './components/UseState/RegistrarFormulario'
+// import Prueba from './components/UseState/Prueba'
+import RegistrarFormulario from './components/UseState/RegistrarFormulario'
+import ToDoList from './components/UseState/ToDoList'
 
 //Declaración de variables globales
 
@@ -47,10 +51,7 @@ const App = () => {
  return (
 
    <>
-  <ContadorDoble />
-   <Contador/>
-   <ContadorDobleBest />
-   <DarkLightMode />
+    <ToDoList />
   </>
  )
 }
