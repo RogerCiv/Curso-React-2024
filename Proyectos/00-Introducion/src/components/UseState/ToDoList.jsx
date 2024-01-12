@@ -57,7 +57,19 @@ const ToDoList = () => {
 		<div className="max-w-sm mx-auto bg-orange-400/50 mt-8 p-2 shadow-xl">
 			<h1 className="text-center text-3xl mb-8 font-semibold ">ToDo List</h1>
 			<div className='flex  items-center justify-center  gap-2'>
-				<input type="text" name='name' className="rounded-xl p-2" placeholder="Nueva tarea..." value={newTask} onChange={(e) => setNewTask(e.target.value)} />
+				<input
+					type="text"
+					name='name'
+					className="rounded-xl p-2"
+					placeholder="Nueva tarea..."
+					value={newTask}
+					onChange={(e) => setNewTask(e.target.value)}
+					onKeyDown={(e) => {
+						if (e.key === 'Enter') {
+							handleAddTask();
+						}
+					}}
+				/>
 				<button type="submit" onClick={handleAddTask} className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Añadir Tarea</button>
 			</div>
 
