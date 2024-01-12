@@ -8,6 +8,7 @@ function Ejercicio05() {
       };
   return (
     <div>
+      <h2 className="text-center text-3xl">Ejercicio 05</h2>
         <p style={style}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ab adipisci saepe.</p>
     </div>
   )

@@ -1,14 +1,10 @@
 
 
 
-function Ejercicio06({ name,age }) {
+function Ejercicio06({ className, text, onClick }) {
   
   return (
-    <div>
-        <p>
-            Nombre: {name}, edad: {age}
-        </p>
-    </div>
+    <button type="button" className={className} onClick={onClick}>{text || 'Enviar'}</button>
   )
 }
 

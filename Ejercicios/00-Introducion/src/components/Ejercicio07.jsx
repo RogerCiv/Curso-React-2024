@@ -1,9 +1,9 @@
 
 function Ejercicio07({condition}) {
   return (
-    <div>
+    <div className="text-pretty text-2xl font-semibold">
         {
-            condition ? "Es true" : "Es falso"
+           condition ? <p>Condición verdadera</p> : <p>Condición falsa</p>
         }
      
         
@@ -12,3 +12,4 @@ function Ejercicio07({condition}) {
 }
 
 export default Ejercicio07
+
