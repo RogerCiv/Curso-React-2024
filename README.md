@@ -1,4 +1,7 @@
+<center>
+
 # Curso REACT 2024
+</center>
 
 <p align="center">
   <img src="header.jpeg" alt="Logo" width="400">
