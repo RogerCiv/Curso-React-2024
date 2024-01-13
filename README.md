@@ -1,7 +1,7 @@
-<center>
+<dv align="center">
 
 # Curso REACT 2024
-</center>
+</div>
 
 <p align="center">
   <img src="header.jpeg" alt="Logo" width="400">
