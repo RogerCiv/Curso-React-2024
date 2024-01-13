@@ -9,7 +9,7 @@ function Ejercicio08({ title, body, footer }) {
         <p className="font-normal text-gray-700 dark:text-gray-400">{body}</p>
         <footer className="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
           <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" className="hover:underline">{footer}</a>
+            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <span href="#" className="hover:underline">{footer}</span>
             </span>
 
           </div>

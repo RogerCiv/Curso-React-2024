@@ -7,8 +7,23 @@ import Ejercicio06 from "./components/Ejercicio06"
 import Ejercicio07 from "./components/Ejercicio07"
 import Ejercicio08 from "./components/Ejercicio08"
 import Ejercicio09 from "./components/Ejercicio09"
+import Ejercicio10 from "./components/Ejercicio10"
+import Ejercicio11 from "./components/Ejercicio11"
 
-
+const users = [
+  {
+    name: "Pepe",
+    age: 22,
+  },
+  {
+    name: "Perico",
+    age: 30,
+  },
+  {
+    name: "Ana",
+    age: 22,
+  }
+]
 
 function App() {
 
@@ -30,6 +45,8 @@ function App() {
   <Ejercicio08 title={"Ejercicio 08"} body={"El body del ej 08"} footer={"El footer del ej 08"}/>
 
   <Ejercicio09 />
+  <Ejercicio10 users={users} />
+  <Ejercicio11 isLoggedIn={true} userRole={"admin"} />
     </main>
     </>
   )

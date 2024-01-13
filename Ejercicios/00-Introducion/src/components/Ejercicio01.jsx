@@ -3,7 +3,7 @@
 function Ejercicio01() {
     const isLogged = true;
   return (
-   <p>
+   <p className="font-semibold text-2xl">
     {isLogged ? "Bienvenido" : "Por favor, Inicia sesión"} 
    </p>
   )
