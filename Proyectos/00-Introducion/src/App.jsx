@@ -1,7 +1,6 @@
 // IMPORTS
 import { useEffect, useState } from 'react'
 import './App.css'
-import CardMovies from './components/UseEffect/CardMovies'
 import Buscador from './components/UseState/Buscador'
 
 // import Contador from './components/UseState/Contador'
@@ -12,39 +11,30 @@ import Buscador from './components/UseState/Buscador'
 // import Prueba from './components/UseState/Prueba'
 import RegistrarFormulario from './components/UseState/RegistrarFormulario'
 import ToDoList from './components/UseState/ToDoList'
+import ComponenteProps from './components/Props/ComponenteProps'
+import UseEffectBasic from './components/UseEffect/UseEffectBasic'
+import ResizeListener from './components/UseEffect/ResizeListener'
+import GitHubUsers from './components/UseEffect/GitHubUserCardApi/GitHubUsers'
 
 //Declaración de variables globales
 
 
 
 const App = () => {
-  const [searchResults, setSearchResults] = useState([])
 
-  async function searchMovies(query){
-    try{
-      const resp = await fetch (`https://www.omdbapi.com/?apikey=10b3bd48&s=${query}`)
-      const data = await resp.json()
-      console.log(data);
-      setSearchResults(data.Search)
-
-    }catch(err){
-      console.log("Error al buscar películas: ",err.message);
-    }
-  }
 
 
  return (
 
    <>
+   <main className='flex flex-col justify-center items-center'>
+
     {/* <ToDoList /> */}
-    <Buscador onSearch={searchMovies} />
-    <main className=' mx-auto max-w-screen-lg grid grid-cols-2 items-center justify-center  gap-2'>
-      {
-        searchResults.map(movie => (
-          <CardMovies key={movie.imdbID} movie={movie} />
-        ))
-      }
-    </main>
+    {/* <ComponenteProps /> */}
+    {/* <UseEffectBasic/> */}
+    {/* <ResizeListener/> */}
+    <GitHubUsers />
+   </main>
   </>
  )
 }
