@@ -27,7 +27,7 @@ const App = () => {
  return (
 
    <>
-   <main className='flex flex-col justify-center items-center'>
+   <main className='flex flex-col justify-center items-center bg-slate-400'>
 
     {/* <ToDoList /> */}
     {/* <ComponenteProps /> */}

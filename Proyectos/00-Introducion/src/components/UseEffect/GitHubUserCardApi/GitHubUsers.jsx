@@ -29,14 +29,14 @@ function GitHubUsers() {
   return (
     <>
       <div className='flex flex-col mx-auto max-w-[75%] text-center relative'>
-        <h1 className='text-3xl text-balance'>Usuando UseEffect para realizar un FETCH de la api Github</h1>
+        <h1 className='mt-2 text-3xl text-balance'>Usuando UseEffect para realizar un FETCH de la api Github</h1>
         {
         isLoading
         ? <Spinner />
-        : <div className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'> 
+        : <div className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8'> 
           {
             users.map((user) => (
-              <CardGitHub key={user.id} login={user.login} html_url={user.html_url} avatar_url={user.avatar_url}/>
+              <CardGitHub key={user.id} login={user.login} html_url={user.html_url} avatar_url={user.avatar_url} site_admin={user.site_admin}/>
             ))
           }
         </div>
