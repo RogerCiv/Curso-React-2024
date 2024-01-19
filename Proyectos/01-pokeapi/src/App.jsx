@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import Nav from './components/Nav'
 import CardPokemon from './components/CardPokemon';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
           }
         </div>
       </main>
+      <Footer />
     </>
   )
 }
