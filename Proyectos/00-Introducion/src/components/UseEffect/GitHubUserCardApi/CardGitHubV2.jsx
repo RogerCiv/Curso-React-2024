@@ -1,30 +1,23 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
 
-function CardGitHub({ avatar_url, login, html_url, site_admin }) {
+function CardGitHubV2({ avatar_url, login, html_url, openModal }) {
   //const { avatar_url, login, html_url, site_admin } = props;
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+    const handleClickImg = () => {
+        openModal(avatar_url);
+    }
 
   return (
     <>
       <div
         className="w-full max-w-sm bg-white border border-gray-200 p-2 rounded-lg shadow-xl dark:bg-gray-800 dark:border-gray-700  hover:transform hover:scale-105 duration-300 hover:bg-slate-700 flex flex-col items-center pb-10 "
-     
       >
         <div className='bg-slate-600 w-full flex justify-center items-center py-2 shadow-xl border border-slate-500/70 rounded-xl mb-2 bg-gradient-to-t from-slate-600 to-slate-300'>
           <img
             className="size-24 mb-3 rounded-full shadow-lg hover:cursor-pointer"
             src={avatar_url}
             alt={`Avatar de ${login}`}
-            onClick={openModal}
+            onClick={handleClickImg}
           />
         </div>
         <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white"><span className='font-bold leading-snug'>Usuario: </span>{login}</h5>
@@ -33,29 +26,11 @@ function CardGitHub({ avatar_url, login, html_url, site_admin }) {
         <button type="button" class="mt-4 text-white bg-slate-400 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-slate-600 dark:hover:bg-slate-400 focus:outline-none dark:focus:ring-slate-800">Ir a Github</button>
         </a>
       </div>
-
-
-
-      {isModalOpen && (
-
-        <Modal onClose={closeModal}>
-          {/* Contenido del modal */}
-
-          <img
-            className="size-60 mb-3 rounded-full shadow-lg"
-            src={avatar_url}
-            alt={`Avatar de ${login}`}
-          />
-          <h2 className='uppercase font-semibold'>{login}</h2>
-          <p><span className='font-semibold'>Tipo usuario:</span> {site_admin ? 'Administrador' : 'User'}</p>
-
-        </Modal>
-      )}
     </>
   );
 }
 
-export default CardGitHub;
+export default CardGitHubV2;
 
 
 

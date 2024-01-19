@@ -2,10 +2,22 @@ import React, { useEffect, useState } from 'react'
 import { fetchGithubUsers } from '../../../helpers/fetchGithubUsers';
 import Spinner from './Spinner';
 import CardGitHub from './CardGitHub';
+import ModalV2 from './ModalV2';
+import CardGitHubV2 from './CardGitHubV2';
 
-function GitHubUsers() {
+function GitHubUsersV2() {
   const [isLoading, setIsLoading] = useState(true);
   const [users, setUsers] = useState([]);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [imgUrl, setImgUrl] = useState('');
+
+  const handleOpenModal = (user) => {
+    setSelectedUser(user);
+
+  }
+  const handleCloseModal = () => {
+    setSelectedUser(null);
+  }
 
   //useEffect
   useEffect(() => {
@@ -33,20 +45,24 @@ function GitHubUsers() {
         {
         isLoading
         ? <Spinner />
-        : <div className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8'> 
+        : 
+        <>
+        <div className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8'> 
           {
             users.map((user) => (
-              <CardGitHub key={user.id} login={user.login} html_url={user.html_url} avatar_url={user.avatar_url} site_admin={user.site_admin}/>
+              <CardGitHubV2 key={user.id} login={user.login} html_url={user.html_url} avatar_url={user.avatar_url} site_admin={user.site_admin} openModal={() => handleOpenModal(user)}/>
             ))
           }
         </div>
+      <ModalV2  isOpen={!!selectedUser} imgUrl={selectedUser?.avatar_url} closeModal={handleCloseModal}/>
+      </>
       }
       </div>
     </>
   )
 }
 
-export default GitHubUsers
+export default GitHubUsersV2
 
 /*
      {
