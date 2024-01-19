@@ -49,7 +49,7 @@ function App() {
       <Nav />
       <main className='max-w-6xl mx-auto '>
         <h1 className='text-3xl font-bold text-center m-10'>PokeApi</h1>
-        <div className='mx-auto grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4'>
+        <div className='mx-auto grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4 m-8'>
 
           {
             pokemons.map((pokemon) => (
