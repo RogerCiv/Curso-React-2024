@@ -3,7 +3,7 @@ lockfileVersion: '6.0'
 settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
-# pnpm-lock.yaml
+
 dependencies:
   react:
     specifier: ^18.2.0
