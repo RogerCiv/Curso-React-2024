@@ -10,5 +10,5 @@ Se pretende crear una web en REACT que permita buscar y mostrar información de 
 EXTRA:
 
 - [X] Se programará en REACT para cuando el ancho de la pantalla sea menos de 400px, las opciones del menu se convierta en hamburguesa.
-- COmponente Acerca De, información nuestra.
+- [ ] COmponente Acerca De, información nuestra.
 

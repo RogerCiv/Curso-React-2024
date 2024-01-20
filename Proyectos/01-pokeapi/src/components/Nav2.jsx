@@ -19,7 +19,7 @@ function Nav2() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
           <img src="/pokemon.svg" className="h-8" alt="Pokemon title Image" />
-            <a href="/" className='text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-tr from-red-400 via-yellow-400 to-pink-600 font-bold text-3xl'>
+            <a href="/" className='text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-tr from-red-400 via-yellow-400 to-pink-600 font-bold text-2xl'>
               PokeApi
             </a>
           </div>
