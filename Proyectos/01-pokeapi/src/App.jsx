@@ -5,6 +5,7 @@ import CardPokemon from './components/CardPokemon';
 import Footer from './components/Footer';
 import InputComp from './components/InputComp';
 import Nav2 from './components/Nav2';
+import Spinner from './components/Spinner';
 import ModalPokemon from './components/ModalPokemon';
 
 
@@ -12,6 +13,7 @@ function App() {
   const [pokemons, setPokemons] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
   const [selectPokemon, setSelectPokemon] = useState(null)
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleSearchPokemons = (e) => {
     setSearchTerm(e.target.value)
@@ -53,10 +55,14 @@ function App() {
           })
         )
         const resultPokemons = !searchTerm ? pokemonDataPromises : pokemonDataPromises.filter(pokemon => pokemon.name.includes(searchTerm))
+        setTimeout(() => {
+          setIsLoading(false)
+        },3000)
         setPokemons(resultPokemons);
 
       } catch (err) {
         console.log(err)
+        setIsLoading(true)
       }
       
     }
@@ -77,8 +83,10 @@ function App() {
         </div>
         <div className='mb-56 md:grid md:grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4 m-8
          flex flex-col justify-center items-center'>
+       
           {
           
+            isLoading ? <Spinner /> :
             pokemons.map((pokemon) => (
               <CardPokemon key={pokemon.id} name={pokemon.name} image={pokemon.image} stats={pokemon.stats}  openModal={() => handleOpenModal(pokemon)} />   
             ))
