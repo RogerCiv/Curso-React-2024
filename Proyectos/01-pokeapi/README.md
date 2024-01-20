@@ -12,3 +12,7 @@ EXTRA:
 - [X] Se programará en REACT para cuando el ancho de la pantalla sea menos de 400px, las opciones del menu se convierta en hamburguesa.
 - [ ] COmponente Acerca De, información nuestra.
 
+
+## Deploy
+
+[pokeapi-daw.vercel.app/](https://pokeapi-daw.vercel.app/)
