@@ -92,7 +92,7 @@ function App() {
               <CardPokemon key={pokemon.id} name={pokemon.name} image={pokemon.image} stats={pokemon.stats}  openModal={() => handleOpenModal(pokemon)} />   
             ))
           }
-          <ModalPokemon2 isOpen={!!selectPokemon} pokemon={selectPokemon} closeModal={handleCloseModal} />
+          <ModalPokemon isOpen={!!selectPokemon} pokemon={selectPokemon} closeModal={handleCloseModal} />
         </div>
       </main>
       <Footer />
