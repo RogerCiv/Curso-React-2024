@@ -8,7 +8,7 @@ function Footer() {
     
     
 
-<footer className="bg-white dark:bg-gray-900">
+<footer className="fixed bottom-0 left-0 z-20 w-full  bg-white border-t border-gray-200   dark:bg-gray-800 dark:border-gray-600">
     <div className="mx-auto w-full max-w-screen-xl p-4 py-4">
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
       <div className="sm:flex sm:items-center sm:justify-between">

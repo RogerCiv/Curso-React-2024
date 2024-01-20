@@ -4,12 +4,17 @@ import Nav from './components/Nav'
 import CardPokemon from './components/CardPokemon';
 import Footer from './components/Footer';
 import InputComp from './components/InputComp';
+import Nav2 from './components/Nav2';
 
 
 function App() {
   const [pokemons, setPokemons] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
+  const [isOpen, setIsOpen] = useState(false)
 
+  function handleToggleNav() {
+    setIsOpen(!isOpen)
+  }
 
  const  handleSearchPokemons = (e) => {
   setSearchTerm(e.target.value)
@@ -57,15 +62,15 @@ function App() {
 
   return (
     <>
-      <Nav />
+      {/* <Nav onClick={handleToggleNav} isOpen={isOpen} /> */}
+      <Nav2 />
       <main className='md:max-w-6xl mx-auto'>
         <div className='flex flex-col justify-center items-center'>
           <h1 className='text-3xl font-bold text-center m-10'>PokeApi</h1>
           <InputComp value={searchTerm} onChange={handleSearchPokemons} />
         </div>
-        <div className='md:grid md:grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4 m-8
+        <div className='mb-56 md:grid md:grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4 m-8
          flex flex-col justify-center items-center'>
-
           {
             pokemons.map((pokemon) => (
               <CardPokemon key={pokemon.id} name={pokemon.name} image={pokemon.image} stats={pokemon.stats} />
