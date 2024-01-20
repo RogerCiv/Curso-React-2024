@@ -3,11 +3,20 @@ import { useState } from 'react'
 import Nav from './components/Nav'
 import CardPokemon from './components/CardPokemon';
 import Footer from './components/Footer';
+import InputComp from './components/InputComp';
 
 
 function App() {
   const [pokemons, setPokemons] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
 
+
+ const  handleSearchPokemons = (e) => {
+  setSearchTerm(e.target.value)
+  console.log(e.target.value);
+ }
+
+ 
   useEffect(() => {
     //Acceso a la api de pokeapi.com
     // creo la función o la importo de un helper
@@ -32,7 +41,8 @@ function App() {
 
           })
         )
-        setPokemons(pokemonDataPromises);
+        const resultPokemons = !searchTerm ? pokemonDataPromises : pokemonDataPromises.filter(pokemon => pokemon.name.includes(searchTerm))
+        setPokemons(resultPokemons);
 
       } catch (err) {
         console.log(err)
@@ -42,15 +52,19 @@ function App() {
     }
 
     fechData()
-  }, []);
+  }, [searchTerm]);
 
 
   return (
     <>
       <Nav />
-      <main className='max-w-6xl mx-auto '>
-        <h1 className='text-3xl font-bold text-center m-10'>PokeApi</h1>
-        <div className='mx-auto grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4 m-8'>
+      <main className='md:max-w-6xl mx-auto'>
+        <div className='flex flex-col justify-center items-center'>
+          <h1 className='text-3xl font-bold text-center m-10'>PokeApi</h1>
+          <InputComp value={searchTerm} onChange={handleSearchPokemons} />
+        </div>
+        <div className='md:grid md:grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4 m-8
+         flex flex-col justify-center items-center'>
 
           {
             pokemons.map((pokemon) => (
