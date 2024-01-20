@@ -24,7 +24,7 @@ function ModalPokemon({ isOpen, pokemon, closeModal }) {
     unknown: 'bg-gray-400',
     shadow: 'bg-gray-400',
   }
-  const getTypeColorClass = (type) => typeColors[type] || 'bg-red-900'; // Predeterminado a gris si el tipo no se encuentra
+  const getTypeColorClass = (type) => typeColors[type] 
 
   return (
     <div className={`fixed inset-0 flex flex-col items-center justify-center z-50 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'} transition-opacity ease-in-out duration-500`}>

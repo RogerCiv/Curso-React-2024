@@ -7,6 +7,7 @@ import InputComp from './components/InputComp';
 import Nav2 from './components/Nav2';
 import Spinner from './components/Spinner';
 import ModalPokemon from './components/ModalPokemon';
+import ModalPokemon2 from './components/ModalPokemon2';
 
 
 function App() {
@@ -91,7 +92,7 @@ function App() {
               <CardPokemon key={pokemon.id} name={pokemon.name} image={pokemon.image} stats={pokemon.stats}  openModal={() => handleOpenModal(pokemon)} />   
             ))
           }
-          <ModalPokemon isOpen={!!selectPokemon} pokemon={selectPokemon} closeModal={handleCloseModal} />
+          <ModalPokemon2 isOpen={!!selectPokemon} pokemon={selectPokemon} closeModal={handleCloseModal} />
         </div>
       </main>
       <Footer />
