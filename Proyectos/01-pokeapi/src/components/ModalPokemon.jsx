@@ -33,7 +33,7 @@ function ModalPokemon({ isOpen, pokemon, closeModal }) {
     from-yellow-500
     via-red-500
     to-yellow-500
-    background-animate p-10  rounded-xl max-w-xs flex flex-col items-center justify-center gap-2'>
+    background-animate p-10  rounded-xl max-w-[280px] md:max-w-xs flex flex-col items-center justify-center gap-2'>
         <div className='flex flex-col items-center justify-center gap-2'>
           <h2 className='font-bold uppercase text-3xl'>{name}</h2>
           <img className="object-cover size-46 rounded-xl" src={image} alt="Avatar usuario" />
