@@ -54,7 +54,7 @@ function App() {
 
           })
         )
-        const resultPokemons = !searchTerm ? pokemonDataPromises : pokemonDataPromises.filter(pokemon => pokemon.name.includes(searchTerm))
+        const resultPokemons = !searchTerm ? pokemonDataPromises : pokemonDataPromises.filter(pokemon => pokemon.name.includes(searchTerm.toLowerCase()))
         setTimeout(() => {
           setIsLoading(false)
         },3000)
