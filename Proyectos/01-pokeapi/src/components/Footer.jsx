@@ -24,7 +24,7 @@ function Footer() {
                   <span className="sr-only">Discord community</span>
               </a>
               <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
-              <TwitterIcon className="size-8 hover:text-cyan-400" />
+              <TwitterIcon className="size-8 hover:text-emerald-200" />
                   <span className="sr-only">Twitter page</span>
               </a>
               
