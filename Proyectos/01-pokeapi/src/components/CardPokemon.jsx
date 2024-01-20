@@ -10,8 +10,11 @@ function CardPokemon({ name, image, stats }) {
       </div>
       <div className='flex flex-col items-center justify-center text-center p-2'>
         <h3 className='font-bold text-xl'>Stats</h3>
-        <p className='font-bold'>Media : <span className={stats < 34 ? 'text-red-700' : stats < 67 ? 'text-yellow-700' : 'text-green-700'	} > {stats.toFixed(2)}</span></p>
+        <p className='font-bold'>Media : <span className={stats < 34 ? 'text-red-700' : stats < 67 ? 'text-yellow-700' : 'text-green-700'} > {stats.toFixed(2)}</span></p>
       </div>
+      <button className="bg-slate-800 px-3 py-2 rounded-md mb-2 hover:opacity-80 ">
+        <span className=' text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-tr from-red-400 via-yellow-400 to-pink-600 text-md'>INFO</span>
+      </button>
     </div>
   )
 }

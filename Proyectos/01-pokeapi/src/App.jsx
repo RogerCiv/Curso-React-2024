@@ -10,11 +10,9 @@ import Nav2 from './components/Nav2';
 function App() {
   const [pokemons, setPokemons] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
-  const [isOpen, setIsOpen] = useState(false)
 
-  function handleToggleNav() {
-    setIsOpen(!isOpen)
-  }
+
+
 
  const  handleSearchPokemons = (e) => {
   setSearchTerm(e.target.value)
