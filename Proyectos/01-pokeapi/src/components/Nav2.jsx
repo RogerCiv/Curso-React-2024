@@ -27,7 +27,7 @@ function Nav2() {
           <div className='hidden md:block'>
             <div className='ml-10 flex items-baseline space-x-4'>
               {navLinks.map((link, index) => (
-                <a key={index} className='text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-tr from-red-400 via-yellow-400 to-pink-600 px-3 py-2 rounded-md text-md font-medium cursor-pointer ' href={link.link}>
+                <a key={index} className='text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-tr from-red-400 via-yellow-400 to-pink-600 px-3 py-2 rounded-md text-md font-medium cursor-pointer ' href={link.path}>
                   {link.title}
                 </a>
               ))}
