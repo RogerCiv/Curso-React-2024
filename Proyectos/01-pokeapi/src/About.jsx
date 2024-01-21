@@ -1,8 +1,13 @@
 import React from 'react'
 
+import BentoGrid from './components/BentoGrid'
+
 function About() {
   return (
-    <div>Pagina about</div>
+    <>
+    <h2 className='text-3xl text-center'>En Construccion</h2>
+    <BentoGrid/>
+    </>
   )
 }
 
