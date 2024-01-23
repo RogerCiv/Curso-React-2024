@@ -9,7 +9,7 @@ function Footer() {
     
 
 <footer className="fixed bottom-0 left-0 z-20 w-full  bg-white border-t border-gray-200   dark:bg-gray-800 dark:border-gray-600">
-    <div className="mx-auto w-full md:max-w-6xl p-4 py-4">
+    <div className="mx-auto w-full md:max-w-4xl lg:max-w-6xl p-4 py-4">
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
       <div className=" sm:flex  sm:items-center sm:justify-between ">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">2024 <a href="" className="hover:underline">PokeApi</a>. 2 DAW - DWEC

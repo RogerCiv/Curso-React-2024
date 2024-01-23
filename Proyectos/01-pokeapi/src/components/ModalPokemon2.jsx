@@ -49,7 +49,7 @@ function ModalPokemon2({ isOpen, pokemon, closeModal }) {
             <h3 className='font-bold'>Types</h3>
             <ul className='flex flex-col gap-2'>
               {types && types.length > 0 && types.map((type, index) => (
-                <li key={index}><button className={`${mainTypeColor} text-black uppercase font-bold w-20 rounded-md`}>{type}</button></li>
+                <li key={index}><button className={`${mainTypeColor}  text-black uppercase font-bold w-20 rounded-md`}>{type}</button></li>
               ))}
             </ul>
           </div>

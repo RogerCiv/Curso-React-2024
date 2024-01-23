@@ -4,8 +4,6 @@ import ModalPokemon from './ModalPokemon';
 
 function CardPokemon({ name, image, stats, openModal }) {
   //si la media aritmetica es de 1 a 33 (0), si es de 34 a 66 (1), si es de 67 a 100 (2) cada nivel (0,1 y 2) seria un color de borde de la card distinto
-  //open modal
-
   
   return (
     <>

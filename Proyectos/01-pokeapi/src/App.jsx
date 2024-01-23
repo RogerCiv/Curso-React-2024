@@ -11,10 +11,15 @@ import ModalPokemon from './components/ModalPokemon';
 import ModalPokemon2 from './components/ModalPokemon2';
 import Home from './Home';
 import About from './About';
+import { createBrowserRouter } from 'react-router-dom';
 
 
 function App() {
  
+  const router = createBrowserRouter([
+    {},
+    {}
+  ])
   return (
     <>
       <Router>
