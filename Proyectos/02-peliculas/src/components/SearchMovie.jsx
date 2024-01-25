@@ -26,7 +26,8 @@ const handleCleanInput = (e) => {
 
    const handleSearchMovie = (e) => {
      setSearchTerm(e.target.value)
-     console.log(e.target.value);
+     //console.log(e.target.value);
+     setIsClean(false)
    }
 
    const { data, loading, error } = useDataApi(url)
@@ -48,7 +49,7 @@ const handleCleanInput = (e) => {
   return (
     <>
     <InputSearchMovie value={searchTerm} onChange={handleSearchMovie} onKeyDown={handleCleanInput} />
-    <div className='mx-auto max-w-[1440px] h-screen mb-10'>
+    <div className="mx-auto max-w-[1440px] h-full mb-40 ">
 
       <div className='grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-4 py-4 '>
 

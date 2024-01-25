@@ -14,19 +14,19 @@ const Home = () => {
   if (error) return <div>Error: {error.message}</div>
 
   return (
-    <main>
+    <main className=''>
       <div className="h-full bg-gray-50 flex items-center">
         <section className="w-full bg-cover bg-center py-40" style={{ backgroundImage: "url('https://source.unsplash.com/random')" }}>
           <div className="container mx-auto text-center text-white">
             <h1 className="text-5xl font-medium mb-6">Movies Api</h1>
             <p className="text-xl mb-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio,
               gravida pellentesque urna varius vitae.</p>
-            <Link to="/movies" className="bg-indigo-500 text-white py-4 px-12 rounded-full hover:bg-indigo-600">Movies</Link>
+            <Link to="searchMovies" className="bg-indigo-500 text-white py-4 px-12 rounded-full hover:bg-indigo-600">Movies</Link>
           </div>
         </section>
       </div>
-      <div>
-        <h2 className='text-center'>Peliculas populares</h2>
+      <div className=' h-screen'>
+        <h2 className='text-center text-3xl m-4'>Peliculas populares</h2>
         {/* {data && data.results.map(movie => (
 	// <div key={movie.id} className="mx-4">
 	// 	<Link to={`/movies/${movie.id}`}>
@@ -35,8 +35,9 @@ const Home = () => {
 	// </div>
 	
   ))} */}
+  
         {/* {loading && <Spinner className={` flex text-center mx-auto justify-center items-center`} />} */}
-        { loading ? <Spinner className={` flex text-center mx-auto justify-center items-center`} /> : error ? <div>Error: {error.message}</div> : data && <PopularMovies data={data} />}
+        { error ? <div>Error: {error.message}</div> : data && <PopularMovies data={data} />}
       </div>
     </main>
   )

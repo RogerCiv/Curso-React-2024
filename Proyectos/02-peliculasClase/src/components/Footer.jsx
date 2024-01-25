@@ -1,8 +1,4 @@
 import React from 'react'
-import GitHubIcon from '../Icons/GitHubIcon'
-import LinkedInIcon from '../Icons/LinkedInIcon'
-import TwitterIcon from '../Icons/TwitterIcon'
-
 
 const Footer = () => {
   return (
@@ -14,15 +10,15 @@ const Footer = () => {
           </span>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
               <a href="https://www.github.com/RogerCiv/" target='_blank' rel='noreferrer' className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                <GitHubIcon className="size-8 hover:text-yellow-500" />
+       
                   <span className="sr-only">GitHub page</span>
               </a>
               <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
-               <LinkedInIcon className="size-8 hover:text-orange-600/70" />
+
                   <span className="sr-only">Discord community</span>
               </a>
               <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
-              <TwitterIcon className="size-8 hover:text-emerald-200" />
+
                   <span className="sr-only">Twitter page</span>
               </a>
               

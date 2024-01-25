@@ -53,33 +53,59 @@ import {
 import React from 'react'
 import RootLayout from './components/router-dom/RootLayout';
 import Home from './components/Home';
-import Movie from './components/Movie';
+import Movie from './components/SearchMovie';
 import MovieInfo from './components/MovieInfo';
 
 const App = () => {
 
+  // const router = createBrowserRouter([
+  //   {
+  //     path: "/",
+  //     element: <RootLayout />,
+  //     children:[
+  //       {
+  //         index: true,
+  //         element: <Home/>
+  //       },
+  //       {
+  //         path: "searchMovies",
+  //         element: <Movie/>
+  //       },
+  //       {
+  //         path: "movies",  
+  //         children: [
+  //           {
+  //             path: ":movieId",
+  //             element: <MovieInfo />
+  //           }
+  //         ]
+  //       }
+  //     ]
+  //   }
+  // ])
+  // return <RouterProvider router={router} />
   const router = createBrowserRouter([
     {
-      path: "",
+      path: "/",
       element: <RootLayout />,
       children:[
         {
-          path: "",
+          index: true,
           element: <Home/>
         },
         {
           path: "searchMovies",
-          element: <Movie/>
-        },
-        {
-          path: "movies",
-          
+          element: <Movie/>,
           children: [
             {
               path: ":movieId",
               element: <MovieInfo />
             }
           ]
+        },
+        {
+          path: "movies:movieId",  
+          element: <MovieInfo />
         }
       ]
     }
