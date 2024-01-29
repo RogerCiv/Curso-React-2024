@@ -9,7 +9,8 @@ const FormSearchMovie = () => {
   const navigate = useNavigate();
   const apiKey = import.meta.env.VITE_API_TOKEN;
   const apiUrl = import.meta.env.VITE_API_URL_SEARCH;
-  const url = `${apiUrl}?query=${searchTerm}&api_key=${apiKey}`;
+ // const url = `${apiUrl}?query=${searchTerm}&api_key=${apiKey}`;
+  const url = `https://api.themoviedb.org/3/search/movie?query=${searchTerm}&api_key=8947f3323155f475efaa896a54e20a13`
 
   const { data, loading, error } = useDataApi(url);
 
