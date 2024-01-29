@@ -1,5 +1,8 @@
+<center>
+
 # Movie API  V2
 
+</center>
 
 <p align="center"><img src="movie01.jpeg" width="600" height="500" /></p>
 
