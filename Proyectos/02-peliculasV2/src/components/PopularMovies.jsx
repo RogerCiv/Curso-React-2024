@@ -4,7 +4,7 @@ import MovieCard from './MovieCard'
 
 
 const PopularMovies = () => {
-const apiKey = import.meta.env.VITE_API_TOKEN
+const apiKey = import.meta.env.VITE_API_KEY
 const { data , loading, error} = useDataApi(`https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1&api_key=${apiKey}`)
 
 
