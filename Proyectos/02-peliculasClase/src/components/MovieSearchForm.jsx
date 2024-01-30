@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDataApi } from '../hooks/useDataAPi';
 import { useState } from 'react';
-import MoviesDetails from '../pages/MoviesDetails';
+import MoviesDetailsPage from '../pages/MoviesDetailsPage';
 import MovieCard from './MovieCard';
 
 const MovieSearchForm = () => {
@@ -45,11 +45,13 @@ const MovieSearchForm = () => {
       }
       </form>
 
+       { loading && <p>Cargando...</p>}
     </div>
     <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 [repeat(auto-fill,minmax(300px,1fr))]'>
- 
+       { error && <p>{error}</p>}
         {
-            filteredMovie && filteredMovie.map(movie => <MovieCard key={movie.id} movie={movie} />)
+            // filteredMovie && filteredMovie.map(movie => <MovieCard key={movie.id} movie={movie} />)
+            (query ? filteredMovie : data?.results || []).map(movie => <MovieCard key={movie.id} movie={movie} />)
         }
     </div>
   </>
