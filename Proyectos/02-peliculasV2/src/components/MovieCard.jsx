@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { FaRegStar } from "react-icons/fa6";
 
 const MovieCard = ({movie}) => {
   return (
@@ -11,6 +12,7 @@ const MovieCard = ({movie}) => {
       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{movie.title}</h5>
       <p className="mb-3 font-normal text-gray-700 dark:text-gray-400"></p>
       <p className='mb-3 font-normal text-gray-700 dark:text-gray-400'>Año: {movie.release_date} - </p>
+      <p> Añadir a favoritos: <FaRegStar className='size-10' /></p>
     </div>
   </Link>
   )
