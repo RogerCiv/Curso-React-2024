@@ -16,8 +16,8 @@ const ResultsPage = () => {
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
-    <div className="p-20 h-full">
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 justify-center p-6">
+    <div className=" h-full py-2">
+      <div className="flex flex-col items-center justify-center sm:grid sm:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4  place-content-center ">
         {currentResults.length > 0 ? (
           currentResults.map((result, index) => (
             <MovieCard key={index} movie={result}  />
