@@ -14,7 +14,7 @@ const PopularMovies = () => {
     infinite: true,
     autoplay: true,
     dots: true,
-    speed: 500,
+    speed: 1500,
     slidesToShow: 4, // Mostrar 4 películas a la vez
     slidesToScroll: 1,
     responsive: [
