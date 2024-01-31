@@ -15,8 +15,8 @@ const PopularMovies = () => {
     autoplay: true,
     dots: true,
     speed: 1500,
-    slidesToShow: 4, // Mostrar 4 películas a la vez
-    slidesToScroll: 1,
+    slidesToShow: 4, 
+    slidesToScroll: 4,
     responsive: [
       {
         breakpoint: 1024,
@@ -41,18 +41,20 @@ const PopularMovies = () => {
 
 
   return (
-    <div className='flex flex-col max-w-[1400px] mx-auto gap-4'>
+    <div className='flex flex-col max-w-[1500px] mx-auto gap-4'>
       <h1 className='text-3xl font-bold text-center'>PopularMovies</h1>
       {loading ? (
         <p>Loading...</p>
       ) : error ? (
         <p>Error: {error.message}</p>
       ) : (
-        <Slider {...settings}>
-           
+        <Slider {...settings} >
+     
+
           {data?.results?.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
-          ))}
+            ))}
+ 
       
         </Slider>
       )}

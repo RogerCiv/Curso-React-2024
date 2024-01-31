@@ -9,7 +9,7 @@ function RootLayout() {
    <>
     <Header/>
  
-    <main>
+    <main className='max-w-[1500px] mx-auto h-full'>
       <Outlet />
     </main>
     <Footer/>
