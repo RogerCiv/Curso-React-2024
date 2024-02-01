@@ -7,7 +7,7 @@ const RootPageLayout = () => {
   return (
     <>
         <Header/>
-        <main>
+        <main className='mx-auto max-w-7xl p-2'>
             <Outlet/>
         </main>
         <Footer/>
