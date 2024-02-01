@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick-theme.css'
 
 const PopularMovies = () => {
   const apiKey = import.meta.env.VITE_API_KEY
-  const { data, loading, error } = useDataApi(`https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1&api_key=${apiKey}`)
+  const { data, loading, error } = useDataApi(`https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1&api_key=8947f3323155f475efaa896a54e20a13`)
 
 
   const settings = {
