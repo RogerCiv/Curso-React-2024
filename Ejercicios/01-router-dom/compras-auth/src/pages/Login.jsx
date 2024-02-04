@@ -1,9 +1,11 @@
 import React from 'react'
 import { ComponentContext } from '../components/useContext/context/ComponentContext'
 import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const { users,  setIsActive} = useContext(ComponentContext)
+  const navigate = useNavigate()
 
   const handleLogin = (e) => {
     e.preventDefault()
@@ -13,6 +15,7 @@ const Login = () => {
     const user = users.find(user => user.name === username && user.password === password);
     if(user){
       setIsActive(true)
+      navigate('/')
     }else{
       alert('Credenciales incorrectas')
     }
