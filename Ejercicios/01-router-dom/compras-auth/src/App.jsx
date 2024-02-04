@@ -12,6 +12,7 @@ import ComponentProvider from "./components/useContext/context/ComponentProvider
 import { useContext } from "react"
 import { ComponentContext } from "./components/useContext/context/ComponentContext"
 
+
 function App() {
   const { isActive } = useContext(ComponentContext)
 
@@ -45,7 +46,8 @@ function App() {
         {
           path: "register",
           element: <Register/>
-        }
+        },
+  
       ]
     }
   ])

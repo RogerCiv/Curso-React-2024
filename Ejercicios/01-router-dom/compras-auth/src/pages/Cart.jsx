@@ -13,9 +13,9 @@ const Cart = () => {
   const handleCheckout = () => {
 
     const total = cart.reduce((acc, product) => acc + product.price, 0);
-    alert('Compra realizada con éxito!',total);
+    alert(`Total a pagar: $${total}`);	
     setCart([]);
-   
+
   }
 
   return (
@@ -23,15 +23,14 @@ const Cart = () => {
       <div className='h-[1000px]'>
 
         <h1>Carrito de Compras</h1>
-          {
-            cart.length > 0 && (
-  
-              <button className='inline-flex items-center px-3 py-3 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 w-1/6  ' onClick={handleCheckout}>
-                Realizar la compra
-              </button>
-  
-            )
-          }
+        {
+          cart.length > 0 && (
+
+            <button className='inline-flex items-center px-3 py-3 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 w-1/6  ' onClick={handleCheckout}>
+              Realizar la compra
+            </button>
+          )
+        }
         <div className='grid grid-cols-[repeat(auto-fit,_minmax(300px,1fr))] gap-2'>
           {
             cart.map(product => (
@@ -45,24 +44,3 @@ const Cart = () => {
 }
 
 export default Cart;
-
-
-// return (
-//   <div>
-//     <h1>Carrito de Compras</h1>
-//     {cart.map(product => (
-//       <div key={product.id}>
-//         <h2>{product.title}</h2>
-//         <p>{product.description}</p>
-//         <button onClick={() => handleRemoveFromCart(product.id)}>
-//           Eliminar del carrito
-//         </button>
-//       </div>
-//     ))}
-//     {cart.length > 0 && (
-//       <button onClick={handleCheckout}>
-//         Realizar la compra
-//       </button>
-//     )}
-//   </div>
-// );
