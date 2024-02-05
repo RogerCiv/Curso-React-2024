@@ -23,7 +23,7 @@ function App() {
       errorElement: <ErrorPage/>,
       children: [
         {
-          element: <ProtectedRoute isActive={isActive} redirectPath="login"/>,
+          element: <ProtectedRoute isActive={isActive} redirectPath="/login"/>,
           children: [
             {
               index: true,

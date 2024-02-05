@@ -26,8 +26,6 @@ const ComponentProvider = ({ children }) => {
   const [isActive, setIsActive ] = useState(false)
   //console.log(cart);
 
-
-
   useEffect(() => {
     const saveLocalStorage = () => {
       localStorage.setItem('cart', JSON.stringify(cart));
