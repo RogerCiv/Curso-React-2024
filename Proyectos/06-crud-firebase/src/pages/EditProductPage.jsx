@@ -13,7 +13,7 @@ const EditProductPage = () => {
   const navigate = useNavigate()
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
-  const [stock, setStock] = useState(0)
+  const [stock, setStock] = useState('')
   const [url, setUrl] = useState('')
 
   const params = useParams()
@@ -43,18 +43,16 @@ const handleUpdateSubmit = async (e) =>{
     }
     await updateProduct(params.idproduct, upProduct)
       setUpdate(true)
-    
+      console.log(update);
    
   }catch(err){
     console.log(err);
-  }finally{
-    setUpdate(false)
   }
 }
 
   useEffect(() => {
     fechDataProducts()
-  },[product])
+  },[update])
 
   return (
     <>
