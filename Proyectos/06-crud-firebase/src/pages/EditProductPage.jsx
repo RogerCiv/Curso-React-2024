@@ -11,12 +11,10 @@ const EditProductPage = () => {
   const [loading, setLoading] = useState(true)
   const [ update, setUpdate ] = useState(false)
   const navigate = useNavigate()
-  const [productValues, setProductsValues ] = useState({
-    name: '',
-    stock: '',
-    description: '',
-    url: ''
-  })
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
+  const [stock, setStock] = useState(0)
+  const [url, setUrl] = useState('')
 
   const params = useParams()
 
@@ -37,18 +35,26 @@ const EditProductPage = () => {
 const handleUpdateSubmit = async (e) =>{
   e.preventDefault()
   try{
-    const upProduct = productValues
+    const upProduct = {
+      name,
+      description,
+      stock,
+      url
+    }
     await updateProduct(params.idproduct, upProduct)
-    setUpdate(true)
-    setFormValues({ name: '', stock: '', description: '', url: '' });
+      setUpdate(true)
+    
+   
   }catch(err){
     console.log(err);
+  }finally{
+    setUpdate(false)
   }
 }
 
   useEffect(() => {
     fechDataProducts()
-  },[update])
+  },[product])
 
   return (
     <>
@@ -78,8 +84,8 @@ const handleUpdateSubmit = async (e) =>{
               placeholder="Nuevo nombre  del producto"
               type="text"
               id="name"
-              value={productValues.name}
-              onChange={(e) => setProductsValues({ ...productValues, name: e.target.value })}
+              value={name} 
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
 
@@ -91,8 +97,8 @@ const handleUpdateSubmit = async (e) =>{
                 placeholder="Nueva url del producto"
                 type="text"
                 id="url"
-                value={productValues.url}
-                onChange={(e) => setProductsValues({ ...productValues, url: e.target.value })}
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
               />
             </div>
 
@@ -103,8 +109,8 @@ const handleUpdateSubmit = async (e) =>{
                 placeholder="Nuevo stock del producto"
                 type="number"
                 id="stock"
-                value={productValues.stock}
-                onChange={(e) => setProductsValues({ ...productValues, stock: e.target.value })}
+                value={stock}
+                onChange={(e) => setStock(e.target.value)}
               />
             </div>
           </div>
@@ -116,8 +122,8 @@ const handleUpdateSubmit = async (e) =>{
               placeholder="Nueva descripción del producto"
               rows="8"
               id="description"
-              value={productValues.description}
-              onChange={(e) => setProductsValues({ ...productValues, description: e.target.value })}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
             ></textarea>
           </div>
 
