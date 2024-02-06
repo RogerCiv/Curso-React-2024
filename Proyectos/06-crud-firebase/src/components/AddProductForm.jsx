@@ -3,11 +3,12 @@ import { useState } from 'react'
 import { addProduct } from '../firebase/productosApi'
 import Swal from 'sweetalert2'
 
-const AddProductForm = () => {
+const AddProductForm = ({setAdd}) => {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [stock, setStock] = useState(0)
     const [url, setUrl] = useState('')
+   
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -33,6 +34,7 @@ const AddProductForm = () => {
            setDescription('')
            setStock(0)
            setUrl('')
+           setAdd(true)
         }catch(err){
             console.error("Error al anadir el producto", err)
         }

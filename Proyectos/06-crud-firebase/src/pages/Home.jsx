@@ -1,8 +1,10 @@
 import React from 'react'
 import AddProductForm from '../components/AddProductForm'
 import ShowProductTable from '../components/ShowProductTable'
+import { useState } from 'react'
 
 const Home = () => {
+  const [add , setAdd ] = useState(false)
   return (
     <>
 
@@ -10,8 +12,8 @@ const Home = () => {
         <h1 className='text-4xl font-bold my-8 text-balance'> Crud de productos con firebase</h1>
         <div>
 
-          <AddProductForm />
-          <ShowProductTable />
+          <AddProductForm setAdd={setAdd} />
+          <ShowProductTable add={add} />
         </div>
       </div>
     </>
