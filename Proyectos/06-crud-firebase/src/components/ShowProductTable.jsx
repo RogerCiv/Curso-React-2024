@@ -2,11 +2,12 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { deleteProduct, getProducts } from '../firebase/productosApi'
+import { useNavigate } from 'react-router-dom'
 
 const ShowProductTable = ({add}) => {
   const [loading, setLoading] = useState(true)
-
   const [products, setProducts] = useState([])
+  const navigate = useNavigate()
 
   const fechDataProducts = async () => {
     try{
@@ -19,7 +20,7 @@ const ShowProductTable = ({add}) => {
     }
   }
   const handleDeleteProduct = async (id) => {
-    console.log(id)
+    // console.log(id)
     try{
       await deleteProduct(id)
       setProducts(products.filter(product => product.id !== id))
@@ -28,9 +29,18 @@ const ShowProductTable = ({add}) => {
     }
   }
 
+  // update product redirect to EditProductpage
+
+  const handleUpdateProduct = (id) => {
+    console.log(id)
+    navigate(`/productos/${id}`)
+  }
+
   useEffect(() => {
     fechDataProducts()
   },[setProducts,add])
+
+
   return (
     <div>
       <h2>Lista de productos</h2>
@@ -58,7 +68,7 @@ const ShowProductTable = ({add}) => {
                       <td className='py-2 px-4 border-b'>{product.description}</td>
                       <td className='py-2 px-4 border-b'>{product.url}</td>
                       <td className='py-2 px-4 border-b'>
-                        <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Editar</button>
+                        <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() => handleUpdateProduct(product.id)}>Editar</button>
                         <button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded' onClick={() => handleDeleteProduct(product.id)}>Eliminar</button>
                       </td>
                     </tr>

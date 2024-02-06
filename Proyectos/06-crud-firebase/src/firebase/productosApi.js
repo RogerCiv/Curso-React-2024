@@ -1,4 +1,4 @@
-import {  collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore"
+import {  collection, addDoc, getDocs, deleteDoc, doc, updateDoc } from "firebase/firestore"
 import { db } from "./firebase"
 // datos de la coleccion
 const productCollection = collection(db, 'Crud-react-productos')
@@ -25,6 +25,17 @@ export const getProducts = async () => {
     }catch(err){
         console.log("Error al cargar los productos",err);
         throw err
+    }
+}
+
+// actualizar un producto
+
+export const updateProduct = async (id, product) => {
+    try{
+        const productRef = doc(db, 'Crud-react-productos', id)
+        await updateDoc(productRef, product)
+    }catch(err){
+        console.log("Error al actualizar el producto",err);
     }
 }
 
