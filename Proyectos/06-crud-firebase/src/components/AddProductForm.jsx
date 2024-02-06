@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 const AddProductForm = ({setAdd}) => {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
-    const [stock, setStock] = useState(0)
+    const [stock, setStock] = useState('')
     const [url, setUrl] = useState('')
    
 
@@ -32,7 +32,7 @@ const AddProductForm = ({setAdd}) => {
 
            setName('')
            setDescription('')
-           setStock(0)
+           setStock('')
            setUrl('')
            setAdd(true)
         }catch(err){

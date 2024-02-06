@@ -11,10 +11,16 @@ const EditProductPage = () => {
   const [loading, setLoading] = useState(true)
   const [ update, setUpdate ] = useState(false)
   const navigate = useNavigate()
-  const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
-  const [stock, setStock] = useState('')
-  const [url, setUrl] = useState('')
+  // const [name, setName] = useState('')
+  // const [description, setDescription] = useState('')
+  // const [stock, setStock] = useState('')
+  // const [url, setUrl] = useState('')
+  const [productValues, setProductsValues] = useState({
+    name: '',
+    description: '',
+    stock: '',
+    url: ''
+  })
 
   const params = useParams()
 
@@ -35,12 +41,7 @@ const EditProductPage = () => {
 const handleUpdateSubmit = async (e) =>{
   e.preventDefault()
   try{
-    const upProduct = {
-      name,
-      description,
-      stock,
-      url
-    }
+    const upProduct = { ...product, ...productValues };
     await updateProduct(params.idproduct, upProduct)
       setUpdate(true)
       console.log(update);
@@ -53,6 +54,18 @@ const handleUpdateSubmit = async (e) =>{
   useEffect(() => {
     fechDataProducts()
   },[update])
+
+  useEffect(() => {
+   
+    if (Object.keys(product).length > 0) {
+      setProductsValues({
+        name: product.name || '',
+        description: product.description || '',
+        stock: product.stock || '',
+        url: product.url || '',
+      });
+    }
+  }, [product]);
 
   return (
     <>
@@ -82,8 +95,8 @@ const handleUpdateSubmit = async (e) =>{
               placeholder="Nuevo nombre  del producto"
               type="text"
               id="name"
-              value={name} 
-              onChange={(e) => setName(e.target.value)}
+              value={productValues.name} 
+              onChange={(e) => setProductsValues({ ...productValues, name: e.target.value })}
             />
           </div>
 
@@ -95,8 +108,8 @@ const handleUpdateSubmit = async (e) =>{
                 placeholder="Nueva url del producto"
                 type="text"
                 id="url"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
+                value={productValues.url}
+                onChange={(e) => setProductsValues({ ...productValues, url: e.target.value })}
               />
             </div>
 
@@ -107,8 +120,8 @@ const handleUpdateSubmit = async (e) =>{
                 placeholder="Nuevo stock del producto"
                 type="number"
                 id="stock"
-                value={stock}
-                onChange={(e) => setStock(e.target.value)}
+                value={productValues.stock}
+                onChange={(e) => setProductsValues({ ...productValues, stock: e.target.value })}
               />
             </div>
           </div>
@@ -120,8 +133,8 @@ const handleUpdateSubmit = async (e) =>{
               placeholder="Nueva descripción del producto"
               rows="8"
               id="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              value={productValues.description}
+              onChange={(e) => setProductsValues({ ...productValues, description: e.target.value })}
             ></textarea>
           </div>
 
@@ -133,9 +146,9 @@ const handleUpdateSubmit = async (e) =>{
               Update
             </button>
           
-            <button className="inline-block w-full rounded-lg bg-pink-500 px-5 py-3 font-medium text-white sm:w-auto" onClick={() => navigate(-1)}>Volver</button>
           </div>
         </form>
+            <button className=" mt-6 inline-block w-full rounded-lg bg-pink-500 px-5 py-3 font-medium text-white sm:w-auto" onClick={() => navigate(-1)}>Volver</button>
       </div>
     </div>
   </div>
