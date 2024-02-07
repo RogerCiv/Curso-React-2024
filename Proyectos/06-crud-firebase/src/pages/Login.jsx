@@ -3,8 +3,8 @@ import { useContext } from 'react'
 import ContextProvider from '../components/context/ContextProvider'
 
 const Login = () => {
-  const  { users }  = useContext(ContextProvider)
-  console.log(users);
+  // const  { users }  = useContext(ContextProvider)
+ 
   return (
     <>
       <form className="max-w-sm mx-auto">
