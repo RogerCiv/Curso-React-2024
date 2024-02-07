@@ -4,6 +4,7 @@ import Login from "./pages/Login"
 import EditProductPage from "./pages/EditProductPage"
 import Payment from "./pages/Payment"
 import ErrorPage from "./pages/ErrorPage"
+import ContextProvider from "./components/context/ContextProvider"
 
 
 function App() {
@@ -29,7 +30,9 @@ function App() {
   ])
 
   return (
-    <RouterProvider router={router} />
+    <ContextProvider>
+      <RouterProvider router={router} />
+    </ContextProvider>
   )
 }
 
