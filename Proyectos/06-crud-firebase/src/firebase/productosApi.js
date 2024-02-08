@@ -21,7 +21,8 @@ export const addProduct = async (product) => {
 export const getProducts = async () => {
     try{
         const data = await getDocs(productCollection)
-        return data.docs.map(doc => ({id: doc.id, ...doc.data()}) )
+        // return data.docs.map(doc => ({id: doc.id, ...doc.data()}) )
+        return data.docs.map(doc => ({ ...doc.data(), id: doc.id}) )
     }catch(err){
         console.log("Error al cargar los productos",err);
         throw err
@@ -44,8 +45,7 @@ export const updateProduct = async (id, product) => {
 
 export const deleteProduct = async (id) => {
     try{
-        await deleteDoc(doc(db, 'Crud-react-productos', id))
-     
+        await deleteDoc(doc(productCollection, id))
     }catch(err){
         console.log("Error al borrar el producto",err);
         throw err
