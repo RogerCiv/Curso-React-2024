@@ -4,7 +4,7 @@ import Login from "./pages/Login"
 import EditProductPage from "./pages/EditProductPage"
 import Payment from "./pages/Payment"
 import ErrorPage from "./pages/ErrorPage"
-import ContextProvider from "./components/context/ContextProvider"
+
 import ProtectedRoute from "./utils/ProtectedRoute"
 import RootPage from "./pages/RootPage"
 
@@ -18,7 +18,7 @@ function App() {
       errorElement: <ErrorPage/>,
       children: [
         {
-          element: <ProtectedRoute isActive={true} redirectPath="/login"/>,
+          element: <ProtectedRoute isActive={false} redirectPath="/login"/>,
           children:[
             {
               index: true,

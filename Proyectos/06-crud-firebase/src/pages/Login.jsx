@@ -1,24 +1,60 @@
 import React from 'react'
-import { useContext } from 'react'
-import ContextProvider from '../components/context/ContextProvider'
-
+import { useRef } from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { signWithGoogle } from '../firebase/productosApi'
+import {  AuthContextProductFunction } from '../context/AuthContextProduct'
 const Login = () => {
-  // const  { users }  = useContext(ContextProvider)
- 
+const [ error, setError ] = useState(null)
+const navigate = useNavigate()
+const { setUserFirebase: signInFirebase } = AuthContextProductFunction
+// crear useRef para cargar el video en el useEffect
+  
+
+  const handleSingIn = async () => {
+    await signWithGoogle(signInFirebase,setError,navigate)
+  }
+  
+  
+  useEffect(() => {
+   
+  }, [])
   return (
     <>
-      <form className="max-w-sm mx-auto">
-        <div className="mb-5">
-          <input type="username" id="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Username" required />
+      <div className='flex flex-col min-h-screen justify-center items-center bg-gradient-to-b from-gray-200 via-gray-300 to-gray-500 '>
+        <header className='flex items-center justify-between mx-10'>
+          <div className='flex flex-col justify-center items-start h-1/2'>
+            <h1 className='text-5xl font-bold text-gray-800 ml-8 mt-10 text-center'>Productos React Firebase</h1>
+            <p className='text-lg text-gray-600 ml-8 mt-10'>Proyecto DEWC</p>
+          </div>
+          <div className='flex justify-center items-start '>
+            <video id='video-firebase' className='w-1/2' autoPlay loop src="https://firebase.google.com/static/images/homepage/Firebase_Hero_Loop.webm?hl=es"></video>
+          </div>
+        </header>
+        <div className='w-full flex items-center justify-center'>
+          <div className='w-1/4 bg-gray-50 py-12 px-4 rounded-xl shadow-xl'>
+            <div>
+              <h2 className='mt-6 text-center text-3xl font-extrabold text-gray-800'>
+                Iniciar Sesion
+              </h2>
+            </div>
+            {error && <div>
+              error: {error}
+            </div>}
+            <div className='rounded-md shadow-md'>
+              <button type='button' className='relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500' onClick={handleSingIn}>
+                Iniciar Sesión con Google
+              </button>
+            </div>
+
+          </div>
+
         </div>
-        <div className="mb-5">
-
-          <input type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='Contraseña' autoComplete='off' required />
+        <div>
+          Completar
         </div>
-
-        <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-      </form>
-
+      </div>
     </>
   )
 }
