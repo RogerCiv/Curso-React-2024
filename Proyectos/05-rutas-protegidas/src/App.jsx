@@ -15,7 +15,7 @@ function App() {
       errorElement: <ErrorPage/>,
       children: [
         {
-          element: <ProtectedRoute  isActive={true} redirectPath="login"/>,
+          element: <ProtectedRoute  isActive={false} redirectPath="login"/>,
           children: [
             {
               index: true,

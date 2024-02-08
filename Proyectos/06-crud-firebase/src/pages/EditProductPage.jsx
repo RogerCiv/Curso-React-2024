@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getProducts, updateProduct } from '../firebase/productosApi'
 import { useNavigate } from 'react-router-dom'
+import Header from '../components/Header'
 
 
 const EditProductPage = () => {
@@ -69,6 +70,7 @@ const handleUpdateSubmit = async (e) =>{
 
   return (
     <>
+    <Header/>
       <h1 className='text-center font-bold text-3xl my-8'>Editar producto</h1>
       <div>
         {
