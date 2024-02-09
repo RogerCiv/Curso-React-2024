@@ -7,6 +7,7 @@ import ErrorPage from "./pages/ErrorPage"
 
 import ProtectedRoute from "./utils/ProtectedRoute"
 import RootPage from "./pages/RootPage"
+import { AuthProvider } from "./context/AuthContextProduct"
 
 
 function App() {
@@ -43,9 +44,9 @@ function App() {
   ])
 
   return (
-    // <ContextProvider>
+     <AuthProvider>
       <RouterProvider router={router} />
-    // </ContextProvider>
+     </AuthProvider>
   )
 }
 

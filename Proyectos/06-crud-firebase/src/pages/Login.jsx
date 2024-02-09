@@ -8,7 +8,7 @@ import {  AuthContextProductFunction } from '../context/AuthContextProduct'
 const Login = () => {
 const [ error, setError ] = useState(null)
 const navigate = useNavigate()
-const { setUserFirebase: signInFirebase } = AuthContextProductFunction
+const { signInFirebase } = AuthContextProductFunction()
 // crear useRef para cargar el video en el useEffect
   
 

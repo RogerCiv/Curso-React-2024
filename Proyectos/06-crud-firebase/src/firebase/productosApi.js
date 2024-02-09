@@ -66,7 +66,7 @@ export const deleteProduct = async (id) => {
 
 // logear usuario con google
 
-export const signWithGoogle = async (signIn, setError, navigate) => {
+export const signWithGoogle = async (signInFirebase, setError, navigate) => {
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
 
@@ -76,7 +76,7 @@ export const signWithGoogle = async (signIn, setError, navigate) => {
   //  const credential = GoogleAuthProvider.credentialFromResult(result);
   //  const token = credential.accessToken;
    const user = result.user;
-   signIn(user);
+   signInFirebase(user);
    navigate("/");
 
   } catch (error) {
