@@ -11,7 +11,7 @@ const URL = `https://apidatos.ree.es/es/datos/mercados/precios-mercados-tiempo-r
 const URL2 = "https://jsonplaceholder.org/users";
 
 const ContextProvider = ({ children }) => {
-  const [preciosLuz, setPreciosLuz] = useState([]);
+  const [precioLuz, setPrecioLuz] = useState([]);
   const [user, setUser] = useState({});
   const [allUsers, setAllUsers] = useState([]);
   const [isActive, setIsActive] = useState(false);
@@ -24,7 +24,7 @@ const ContextProvider = ({ children }) => {
       const values = data.included.find(
         (item) => item.type === "Precio mercado spot (€/MWh)"
       ).attributes.values;
-      setPreciosLuz(values);
+      setPrecioLuz(values);
     }
     fetchApi();
   }, []);
@@ -42,8 +42,8 @@ const ContextProvider = ({ children }) => {
   return (
     <Context.Provider
       value={{
-        preciosLuz,
-        setPreciosLuz,
+        precioLuz,
+        setPrecioLuz,
         user,
         setUser,
         allUsers,

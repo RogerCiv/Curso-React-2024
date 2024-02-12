@@ -23,7 +23,7 @@ const { isActive } = useContext(Context)
     errorElement: <ErrorPage/>,
     children: [
      {
-      element: <ProtectedRoute isActive={isActive} redirectPath="/login"/>,
+      element: <ProtectedRoute isActive={true} redirectPath="/login"/>,
       children: [
         {
           index:true,
