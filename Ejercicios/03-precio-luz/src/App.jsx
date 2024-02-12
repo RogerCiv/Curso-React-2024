@@ -8,10 +8,12 @@ import { RouterProvider } from "react-router-dom"
 import PrecioLuz from "./pages/PrecioLuz"
 import ProtectedRoute from "./utils/ProtectedRoute"
 import { useContext } from "react"
-import ComponentContext from "./components/context/ComponentContext"
+
+import Context from "./components/context/Context"
+import { Navigate } from "react-router-dom"
 
 function App() {
-const { isActive } = useContext(ComponentContext) 
+const { isActive } = useContext(Context) 
 // console.log(isActive);
 
  const router = createBrowserRouter([
@@ -25,10 +27,10 @@ const { isActive } = useContext(ComponentContext)
       children: [
         {
           index:true,
-          element: <Home/>
+          element: <Navigate to="/precioluz" replace	/>
         },
         {
-          path: "precioluz",
+          path: "/precioluz",
           element: <PrecioLuz/>
         }
       ]
