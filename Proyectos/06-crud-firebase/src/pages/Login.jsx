@@ -4,11 +4,11 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { signWithGoogle } from '../firebase/productosApi'
-import {  AuthContextProductFunction } from '../context/AuthContextProduct'
+import {  useAuthProduct } from '../context/authContextProduct'
 const Login = () => {
 const [ error, setError ] = useState(null)
 const navigate = useNavigate()
-const { signInFirebase } = AuthContextProductFunction()
+const { signInFirebase } = useAuthProduct()
 // crear useRef para cargar el video en el useEffect
   
 

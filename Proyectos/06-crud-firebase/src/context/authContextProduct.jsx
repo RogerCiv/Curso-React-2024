@@ -34,6 +34,6 @@ const value = {
   )
 }
 
-export const AuthContextProductFunction = () => {
+export const useAuthProduct = () => {
     return useContext(AuthContext)
 }

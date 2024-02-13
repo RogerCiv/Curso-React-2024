@@ -7,10 +7,11 @@ import ErrorPage from "./pages/ErrorPage"
 
 import ProtectedRoute from "./utils/ProtectedRoute"
 import RootPage from "./pages/RootPage"
-import { AuthProvider } from "./context/AuthContextProduct"
+import { useAuthProduct, AuthProvider } from "./context/authContextProduct"
 
 
 function App() {
+
 
   const router = createBrowserRouter([
     {
@@ -19,7 +20,7 @@ function App() {
       errorElement: <ErrorPage/>,
       children: [
         {
-          element: <ProtectedRoute isActive={false} redirectPath="/login"/>,
+          element: <ProtectedRoute redirectPath="/login"/>,
           children:[
             {
               index: true,
