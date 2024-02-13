@@ -1,19 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAuthProduct } from '../context/authContextProduct'
+import { useState } from 'react'
+import SignOutButton from './SignOutButton'
+
 
 const Header = () => {
-  const { signOutFirebase } = useAuthProduct()
+  const { signOutFirebase, userFirebase } = useAuthProduct()
+  const [isOpen , setIsOpen] = useState(false)
   return (
    
 
 <nav className="bg-white border-gray-200 dark:bg-gray-900">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="" className="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="" className="h-8" alt="Flowbite Logo" />
-        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">DWEC</span>
+        <img src="vite.svg" className="h-8" alt="Vite Logo" />
+        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Proyecto Productos con Firebase</span>
     </a>
-    <button data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+    <button data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false" onClick={() => setIsOpen(!isOpen)}>
         <span className="sr-only">Open main menu</span>
         <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
@@ -28,7 +32,17 @@ const Header = () => {
           <Link to={"/payment"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Payment</Link>
         </li>
         <li>
-          <button className='text-white  hover:text-blue-500' onClick={() => signOutFirebase()}>Cerrar Sesión</button>
+          <span className='text-white'>Bienvenido Usuario:</span>
+       
+        </li>
+        <li>
+        <p className='text-white'>{userFirebase.displayName}</p>
+        </li>
+        <li>
+          <img src={userFirebase.photoURL} alt="" className='size-10 rounded-full'  />
+        </li>
+        <li>
+          <SignOutButton />
         </li>
       </ul>
     </div>

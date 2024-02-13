@@ -9,8 +9,6 @@ const Login = () => {
 const [ error, setError ] = useState(null)
 const navigate = useNavigate()
 const { signInFirebase } = useAuthProduct()
-// crear useRef para cargar el video en el useEffect
-  
 
   const handleSingIn = async () => {
     await signWithGoogle(signInFirebase,setError,navigate)

@@ -1,13 +1,14 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Home from "./pages/Home"
 import Login from "./pages/Login"
-import EditProductPage from "./pages/EditProductPage"
+// import EditProductPage from "./pages/EditProductPage2.jsx"
 import Payment from "./pages/Payment"
 import ErrorPage from "./pages/ErrorPage"
 
 import ProtectedRoute from "./utils/ProtectedRoute"
 import RootPage from "./pages/RootPage"
 import { useAuthProduct, AuthProvider } from "./context/authContextProduct"
+import EdtiProductPage from "./pages/EditProductPage"
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
             },
             {
               path: "/productos/:idproduct",
-              element: <EditProductPage/>
+              element: <EdtiProductPage/>
             },
             {
               path: "/payment",
