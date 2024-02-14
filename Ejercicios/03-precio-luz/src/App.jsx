@@ -1,20 +1,16 @@
 import { createBrowserRouter } from "react-router-dom"
 import RootPageLayout from "./pages/RootPageLayout"
 import ErrorPage from "./pages/ErrorPage"
-import Home from "./pages/Home"
 import Login from "./pages/Login"
-import ContextProvider from "./components/context/ContextProvider"
 import { RouterProvider } from "react-router-dom"
 import PrecioLuz from "./pages/PrecioLuz"
 import ProtectedRoute from "./utils/ProtectedRoute"
-import { useContext } from "react"
 
-import Context from "./components/context/Context"
 import { Navigate } from "react-router-dom"
+import { AuthProvider } from "./context/authContext"
 
 function App() {
-const { isActive } = useContext(Context) 
-// console.log(isActive);
+
 
  const router = createBrowserRouter([
   {
@@ -23,7 +19,7 @@ const { isActive } = useContext(Context)
     errorElement: <ErrorPage/>,
     children: [
      {
-      element: <ProtectedRoute isActive={true} redirectPath="/login"/>,
+      element: <ProtectedRoute  redirectPath="/login"/>,
       children: [
         {
           index:true,
@@ -34,18 +30,20 @@ const { isActive } = useContext(Context)
           element: <PrecioLuz/>
         }
       ]
+     },
+     {
+       path: 'login',
+       element: <Login/>,
      }
     ]
-  },
-  {
-    path: 'login',
-    element: <Login/>,
   }
  ])
   return (
-    <ContextProvider>
+    <AuthProvider>
+
       <RouterProvider router={router}/>
-    </ContextProvider>
+    </AuthProvider>
+
   )
 }
 

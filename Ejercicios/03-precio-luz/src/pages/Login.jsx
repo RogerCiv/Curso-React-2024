@@ -3,11 +3,12 @@ import { useContext } from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import Context from '../components/context/Context'
+
 import { useEffect } from 'react'
+import { useAuthContext } from '../context/authContext'
 
 const Login = () => {
-  const { allUsers, isActive,setIsActive, setUser } = useContext(Context);
+  const { allUsers, setIsLogged, setUser } = useAuthContext();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -21,18 +22,11 @@ const Login = () => {
         user.login.password === password
       ) {
         setUser(user);
-        setIsActive(true);
-        // navigate("/precioluz");
-        console.log("Login correcto");
-        console.log(isActive);
+        setIsLogged(true);
+        navigate("/precioluz");
       }
     });
   }
-  useEffect(() => {
-    if (isActive) {
-      navigate("/precioluz");
-    }
-  }, [isActive]);
   
 
   return (

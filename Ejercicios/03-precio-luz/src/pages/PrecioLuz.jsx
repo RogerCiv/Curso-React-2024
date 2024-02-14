@@ -1,12 +1,13 @@
 import React from 'react'
-import { useDataApi } from '../hooks/useDataApi'
+
 import CardLuz from '../components/CardLuz';
 import { useContext } from 'react';
-import Context from '../components/context/Context';
+import { useAuthContext } from '../context/authContext';
+
 
 const PrecioLuz = () => {
 
-  const { precioLuz } = useContext(Context);
+  const { precioLuz } = useAuthContext();
   const highPrice = [...precioLuz].sort((a, b) => b.value - a.value).slice(0, 6);
   const lowPrice = [...precioLuz].sort((a, b) => a.value - b.value).slice(0,6);
 

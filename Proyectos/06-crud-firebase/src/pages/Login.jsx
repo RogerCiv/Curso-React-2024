@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { signWithGoogle } from '../firebase/productosApi'
 import {  useAuthProduct } from '../context/authContextProduct'
 const Login = () => {
+  
 const [ error, setError ] = useState(null)
 const navigate = useNavigate()
 const { signInFirebase } = useAuthProduct()

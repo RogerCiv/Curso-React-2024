@@ -3,24 +3,18 @@ import { Link } from 'react-router-dom'
 
 const navLinks = [
   {
-    path: '/',
-    name: 'Home'
-  },
-  {
     path: '/precioluz',
     name: 'PrecioLuz'
   },
   {
     path: '/login',
     name: 'Login'
-  },
-  {
-    path: '/logout',
-    name: 'Logout'
   }
 ]
 
+
 const Header = () => {
+
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
     <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -44,6 +38,10 @@ const Header = () => {
             </li>
           ))
         }
+        <li>
+          <Link to="/login" className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page"
+         >Logout</Link>
+        </li>
         </ul>
       </div>
     </div>

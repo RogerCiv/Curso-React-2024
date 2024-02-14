@@ -7,7 +7,7 @@ import ErrorPage from "./pages/ErrorPage"
 
 import ProtectedRoute from "./utils/ProtectedRoute"
 import RootPage from "./pages/RootPage"
-import { useAuthProduct, AuthProvider } from "./context/authContextProduct"
+import { AuthProvider } from "./context/authContextProduct"
 import EdtiProductPage from "./pages/EditProductPage"
 
 
