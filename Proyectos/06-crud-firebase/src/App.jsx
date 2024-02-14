@@ -28,7 +28,7 @@ function App() {
               element: <Home/>
             },
             {
-              path: "/productos/:idproduct",
+              path: "/productos/:idProduct",
               element: <EdtiProductPage/>
             },
             {

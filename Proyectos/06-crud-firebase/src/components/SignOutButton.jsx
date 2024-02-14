@@ -5,14 +5,13 @@ import { signOutWhitGoogle } from '../firebase/productosApi'
 
 const SignOutButton = () => {
     const { signOutFirebase } = useAuthProduct()
-    const navigate = useNavigate()
+   
 
     const handleSignOut = async () => {
         try{
            const cerradoCorrectamente = await signOutWhitGoogle();
            if(cerradoCorrectamente){
             signOutFirebase();
-            //    navigate('/');
             }
 
         }catch(err){

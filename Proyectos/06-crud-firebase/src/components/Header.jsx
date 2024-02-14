@@ -42,7 +42,7 @@ const Header = () => {
           <img src={userFirebase.photoURL} alt="" className='size-10 rounded-full'  />
         </li>
         <li>
-          <SignOutButton />
+          <SignOutButton signOutFirebase={signOutFirebase} />
         </li>
       </ul>
     </div>

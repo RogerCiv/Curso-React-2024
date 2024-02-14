@@ -47,9 +47,10 @@ export const getProducts = async () => {
 export const getProductById = async (id) => {
   try {
     const productDocRef = doc(db, "Crud-react-productos", id);
-    const data = await getDoc(productDocRef);
-    if(productDocRef.exists()){
-      return { ...data.data(), id: data.id };
+    const productDoc = await getDoc(productDocRef);
+    console.log(productDoc.id);
+    if(productDoc.exists()){
+      return { ...productDoc.data(), id: productDoc.id };
     }
     console.log("El producto con ese id no existe");
     return null;

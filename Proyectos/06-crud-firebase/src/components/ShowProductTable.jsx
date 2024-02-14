@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { deleteProduct, getProducts } from '../firebase/productosApi'
 import { useNavigate } from 'react-router-dom'
-import  Swal  from 'sweetalert2'
+import Swal from 'sweetalert2'
 const ShowProductTable = ({ add }) => {
   const [loading, setLoading] = useState(true)
   const [products, setProducts] = useState([])
@@ -31,7 +31,7 @@ const ShowProductTable = ({ add }) => {
         confirmButtonText: 'Si, borrar',
         cancelButtonText: 'Cancelar',
       })
-      if(response.isConfirmed){
+      if (response.isConfirmed) {
         await deleteProduct(id)
         setProducts(products.filter(product => product.id !== id))
       }
