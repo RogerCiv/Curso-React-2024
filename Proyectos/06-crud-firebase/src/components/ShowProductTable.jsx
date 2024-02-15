@@ -8,6 +8,7 @@ const ShowProductTable = ({ add }) => {
   const [loading, setLoading] = useState(true)
   const [products, setProducts] = useState([])
   const [stockTotal, setStockTotal] = useState(0)
+  const [orden, setOrden] = useState("asc")
   const navigate = useNavigate()
 
 
@@ -20,6 +21,15 @@ const ShowProductTable = ({ add }) => {
     navigate('/payment', { state: { stockTotal} });
   }
 
+const handleClickSort = () => {
+  if (orden === "asc") {
+    setProducts([...products].sort((a, b) => a.stock - b.stock));
+    setOrden("desc");
+  } else {
+    setProducts([...products].sort((a, b) => b.stock - a.stock));
+    setOrden("asc");
+  }
+}
   const fechDataProducts = async () => {
     try {
       const data = await getProducts()
@@ -79,7 +89,7 @@ const ShowProductTable = ({ add }) => {
                 <tr>
                   <th className='py-2 px-4 border-b'>ID</th>
                   <th className='py-2 px-4 border-b'>Nombre</th>
-                  <th className='py-2 px-4 border-b'>Stock</th>
+                  <th className='py-2 px-4 border-b' > <button onClick={handleClickSort}>Stock</button></th>
                   <th className='py-2 px-4 border-b'>Descripcion</th>
                   <th className='py-2 px-4 border-b'>URL</th>
                   <th className='py-2 px-4 border-b'>Acciones</th>

@@ -10,7 +10,7 @@ const EdtiProductPage = () => {
     const {idProduct } = useParams()
     const [product, setProduct] = useState(null)
     const navigate = useNavigate()
-    console.log(idProduct);
+    // console.log(idProduct);
     useEffect(() => {
         const fetchProduct = async () => {
             try {

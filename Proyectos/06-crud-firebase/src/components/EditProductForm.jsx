@@ -20,42 +20,45 @@ const EditProductForm = ({ product }) => {
   //   stock: product.stock,
   //   description: product.description
   // })
-  const handleNameChange = (e) => {
-    setName(e.target.value)
-  }
+  const [productData, setProductData] = useState(product)
 
-  const handleUrlChange = (e) => {
-    setUrl(e.target.value)
-  }
-
-  const handleStockChange = (e) => {
-    setStock(e.target.value)
-  }
-
-  const handleDescriptionChange = (e) => {
-    setDescription(e.target.value)
-  }
-
-  // const handleInputChange = (e) => {
-  //   const { name, value } = e.target
-  //   setProductData({
-  //     ...productData,
-  //     [name]: value
-  //   })
+  // const handleNameChange = (e) => {
+  //   setName(e.target.value)
   // }
+
+  // const handleUrlChange = (e) => {
+  //   setUrl(e.target.value)
+  // }
+
+  // const handleStockChange = (e) => {
+  //   setStock(e.target.value)
+  // }
+
+  // const handleDescriptionChange = (e) => {
+  //   setDescription(e.target.value)
+  // }
+
+  const handleInputChange = (e) => {
+  
+    const { name, value } = e.target
+    setProductData({
+      ...productData,
+      [name]: value
+    })
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
   
-    const upProduct = {
-      name,
-      url,
-      stock,
-      description
-    }
+    // const upProduct = {
+    //   name,
+    //   url,
+    //   stock,
+    //   description
+    // }
 
     try{
-      updateProduct(product.id, upProduct)
+      updateProduct(product.id, productData)
       Swal.fire({
         icon: 'success',
         title: 'Producto editado',
@@ -80,11 +83,11 @@ const EditProductForm = ({ product }) => {
             <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
               <div className="lg:col-span-2 lg:py-12">
                 <div className="mt-8">
-                  <a href={url}  target='_blank' rel="noopener noreferrer" className="text-2xl font-bold text-pink-600"> {name} </a>
+                  <a href={productData.url}  target='_blank' rel="noopener noreferrer" className="text-2xl font-bold text-pink-600"> {productData.name} </a>
 
-                  <p className="mt-2 not-italic">{description}</p>
-                  <p><span>Stock:</span>{stock}</p>
-                  <img src={url} alt="imagen del producto" />
+                  <p className="mt-2 not-italic">{productData.description}</p>
+                  <p><span>Stock:</span>{productData.stock}</p>
+                  <img src={productData.url} alt="imagen del producto" />
                 </div>
               </div>
 
@@ -96,9 +99,9 @@ const EditProductForm = ({ product }) => {
                       className="w-full rounded-lg border-gray-200 p-3 text-sm"
                       placeholder="Nuevo nombre  del producto"
                       type="text"
-                      id="name"
-                      value={name}
-                      onChange={handleNameChange}
+                      name="name"
+                      value={productData.name}
+                      onChange={handleInputChange}
                     />
                   </div>
 
@@ -109,9 +112,9 @@ const EditProductForm = ({ product }) => {
                         className="w-full rounded-lg border-gray-200 p-3 text-sm"
                         placeholder="Nueva url del producto"
                         type="text"
-                        id="url"
-                        value={url}
-                        onChange={handleUrlChange}
+                        name="url"
+                        value={productData.url}
+                        onChange={handleInputChange}
                       />
                     </div>
 
@@ -121,9 +124,9 @@ const EditProductForm = ({ product }) => {
                         className="w-full rounded-lg border-gray-200 p-3 text-sm"
                         placeholder="Nuevo stock del producto"
                         type="number"
-                        id="stock"
-                        value={stock}
-                        onChange={handleStockChange}
+                        name="stock"
+                        value={productData.stock}
+                        onChange={handleInputChange}
                       />
                     </div>
                   </div>
@@ -134,23 +137,23 @@ const EditProductForm = ({ product }) => {
                       className="w-full rounded-lg border-gray-200 p-3 text-sm"
                       placeholder="Nueva descripción del producto"
                       rows="8"
-                      id="description"
-                      value={description}
-                      onChange={handleDescriptionChange}
+                      name="description"
+                      value={productData.description}
+                      onChange={handleInputChange}
                     ></textarea>
                   </div>
 
                   <div className=" flex mt-4 gap-2">
                     <button
                       type="submit"
-                      className="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
+                      className="inline-block w-full rounded-lg bg-black/85 hover:bg-black px-5 py-3 font-medium text-white sm:w-auto"
                     >
                       Update
                     </button>
 
                   </div>
                 </form>
-                <button className=" mt-6 inline-block w-full rounded-lg bg-pink-500 px-5 py-3 font-medium text-white sm:w-auto" onClick={() => navigate(-1)}>Volver</button>
+                <button className=" mt-6 inline-block w-full rounded-lg bg-pink-500 hover:bg-pink-700 px-5 py-3 font-medium text-white sm:w-auto" onClick={() => navigate(-1)}>Volver</button>
               </div>
             </div>
           </div>
