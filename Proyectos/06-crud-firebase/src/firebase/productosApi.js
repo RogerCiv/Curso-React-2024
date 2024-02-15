@@ -71,8 +71,6 @@ export const updateProduct = async (id, product) => {
   }
 };
 
-
-
 // eliminar un producto mediante id
 
 export const deleteProduct = async (id) => {

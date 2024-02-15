@@ -47,7 +47,7 @@ const EditProductForm = ({ product }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
   
-    const updatedProduct = {
+    const upProduct = {
       name,
       url,
       stock,
@@ -55,7 +55,7 @@ const EditProductForm = ({ product }) => {
     }
 
     try{
-      updateProduct(product.id, updateProduct)
+      updateProduct(product.id, upProduct)
       Swal.fire({
         icon: 'success',
         title: 'Producto editado',

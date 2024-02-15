@@ -7,12 +7,24 @@ import Swal from 'sweetalert2'
 const ShowProductTable = ({ add }) => {
   const [loading, setLoading] = useState(true)
   const [products, setProducts] = useState([])
+  const [stockTotal, setStockTotal] = useState(0)
   const navigate = useNavigate()
+
+
+  // const getTotalStock = (products) => {
+  // return products.reduce((acc, product) => acc += parseInt(product.stock), 0)
+  // }
+
+  const handleClickPayment = () => {
+    // const totalStock = getTotalStock(products);
+    navigate('/payment', { state: { stockTotal} });
+  }
 
   const fechDataProducts = async () => {
     try {
       const data = await getProducts()
       setProducts(data)
+      setStockTotal(data.reduce((acc, product) => acc += parseInt(product.stock), 0))
     } catch (err) {
       console.log("Error al cargar los productos", err);
     } finally {
@@ -47,7 +59,7 @@ const ShowProductTable = ({ add }) => {
   // update product redirect to EditProductpage
 
   const handleUpdateProduct = (id) => {
-    console.log(id)
+    //console.log(id)
     navigate(`/productos/${id}`)
   }
   // useEffect para cargar los productos siempre que se haga un setProductos y 
@@ -92,6 +104,12 @@ const ShowProductTable = ({ add }) => {
 
               </tbody>
             </table>
+            <div className='bg-gray-400 p-4 mt-4 flex justify-between items-center'>
+              <span className='text-lg font-semibold'>Total Stock:</span>
+              <span className='text-lg'>{stockTotal}</span>
+              <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+              onClick={handleClickPayment}>Pagar</button>
+            </div>
 
           </>
         )
