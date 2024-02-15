@@ -143,17 +143,17 @@ const EditProductForm = ({ product }) => {
                     ></textarea>
                   </div>
 
-                  <div className=" flex mt-4 gap-2">
+                  <div className=" flex mt-4 gap-2 justify-between">
                     <button
                       type="submit"
-                      className="inline-block w-full rounded-lg bg-black/85 hover:bg-black px-5 py-3 font-medium text-white sm:w-auto"
+                      className=" mt-6 inline-block w-full rounded-lg bg-black/85 hover:bg-black px-5 py-3 font-medium text-white sm:w-auto"
                     >
                       Update
                     </button>
 
+                <button type='button' className=" mt-6 inline-block w-full rounded-lg bg-pink-500 hover:bg-pink-700 px-5 py-3 font-medium text-white sm:w-auto" onClick={() => navigate(-1)}>Volver</button>
                   </div>
                 </form>
-                <button className=" mt-6 inline-block w-full rounded-lg bg-pink-500 hover:bg-pink-700 px-5 py-3 font-medium text-white sm:w-auto" onClick={() => navigate(-1)}>Volver</button>
               </div>
             </div>
           </div>
