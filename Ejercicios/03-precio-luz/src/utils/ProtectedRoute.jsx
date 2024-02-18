@@ -5,7 +5,8 @@ import { useAuthContext } from '../context/authContext'
 
 const ProtectedRoute = ({ redirectPath}) => {
   const { user } = useAuthContext()
-  const isActive = !!user
+  // const isActive = !!user
+  const isActive = false
   console.log(user);
     if(!isActive){
       return <Navigate to={redirectPath}/>
