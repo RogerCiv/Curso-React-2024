@@ -21,6 +21,7 @@ const EditProductForm = ({ product }) => {
   //   description: product.description
   // })
   const [productData, setProductData] = useState(product)
+  console.log(productData);
 
   // const handleNameChange = (e) => {
   //   setName(e.target.value)
@@ -87,6 +88,7 @@ const EditProductForm = ({ product }) => {
 
                   <p className="mt-2 not-italic">{productData.description}</p>
                   <p><span>Stock:</span>{productData.stock}</p>
+                  <p><span>Precio:</span>{productData.price}$</p>
                   <img src={productData.url} alt="imagen del producto" />
                 </div>
               </div>
@@ -126,6 +128,17 @@ const EditProductForm = ({ product }) => {
                         type="number"
                         name="stock"
                         value={productData.stock}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                    <div>
+                      <label className="sr-only" htmlFor="price">Precio</label>
+                      <input
+                        className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                        placeholder="Nuevo Precio del producto"
+                        type="number"
+                        name="price"
+                        value={productData.price}
                         onChange={handleInputChange}
                       />
                     </div>

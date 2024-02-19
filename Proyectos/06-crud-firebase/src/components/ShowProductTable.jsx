@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 const ShowProductTable = ({ add }) => {
   const [loading, setLoading] = useState(true)
   const [products, setProducts] = useState([])
-  const [stockTotal, setStockTotal] = useState(0)
+  const [precioTotal, setPrecioTotal] = useState(0)
   const [orden, setOrden] = useState("asc")
   const navigate = useNavigate()
 
@@ -18,7 +18,7 @@ const ShowProductTable = ({ add }) => {
 
   const handleClickPayment = () => {
     // const totalStock = getTotalStock(products);
-    navigate('/payment', { state: { stockTotal} });
+    navigate('/payment', { state: { stockTotal: precioTotal} });
   }
 
 const handleClickSort = () => {
@@ -34,7 +34,7 @@ const handleClickSort = () => {
     try {
       const data = await getProducts()
       setProducts(data)
-      setStockTotal(data.reduce((acc, product) => acc += parseInt(product.stock), 0))
+      setPrecioTotal(data.reduce((acc, product) => acc += parseInt(product.price), 0))
     } catch (err) {
       console.log("Error al cargar los productos", err);
     } finally {
@@ -90,6 +90,7 @@ const handleClickSort = () => {
                   <th className='py-2 px-4 border-b'>ID</th>
                   <th className='py-2 px-4 border-b'>Nombre</th>
                   <th className='py-2 px-4 border-b' > <button onClick={handleClickSort}>Stock</button></th>
+                  <th className='py-2 px-4 border-b'> <button>Precio</button></th>
                   <th className='py-2 px-4 border-b'>Descripcion</th>
                   <th className='py-2 px-4 border-b'>URL</th>
                   <th className='py-2 px-4 border-b'>Acciones</th>
@@ -98,10 +99,12 @@ const handleClickSort = () => {
               <tbody>
                 {
                   products.map((product) => (
+                    
                     <tr key={product.id}>
                       <td className='py-2 px-4 border-b'>{product.id}</td>
                       <td className='py-2 px-4 border-b'>{product.name}</td>
                       <td className='py-2 px-4 border-b'>{product.stock}</td>
+                      <td className='py-2 px-4 border-b'>{product.price}$</td>
                       <td className='py-2 px-4 border-b'>{product.description}</td>
                       <td className='py-2 px-4 border-b'><img src={product.url} alt={`imagen del producto ${product.name}`} /></td>
                       <td className='py-2 px-4 border-b'>
@@ -115,8 +118,8 @@ const handleClickSort = () => {
               </tbody>
             </table>
             <div className='bg-gray-400 p-4 mt-4 flex justify-between items-center'>
-              <span className='text-lg font-semibold'>Total Stock:</span>
-              <span className='text-lg'>{stockTotal}</span>
+              <span className='text-lg font-semibold'>Precio Total:</span>
+              <span className='text-lg'>{precioTotal}$ <span className='font-bold'>$</span></span>
               <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
               onClick={handleClickPayment}>Pagar</button>
             </div>

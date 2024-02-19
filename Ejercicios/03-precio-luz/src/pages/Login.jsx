@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 import { useAuthContext } from '../context/authContext'
 
 const Login = () => {
-  const { allUsers, setIsLogged, setUser } = useAuthContext();
+  const { allUsers, setIsLogged, user, setUser } = useAuthContext();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -16,18 +16,20 @@ const Login = () => {
   const navigate = useNavigate();
 
   function checkLogin(username, password) {
-    allUsers.forEach((user) => {
+    allUsers.forEach((u) => {
       if (
-        user.login.username === username &&
-        user.login.password === password
+        u.login.username === username &&
+        u.login.password === password
       ) {
-        setUser(user);
-        setIsLogged(true);
+        setUser(u);
+      
+        console.log(user);
         navigate("/precioluz");
       }
     });
   }
-  
+
+
 
   return (
     <form  className="max-w-sm mx-auto flex flex-col justify-center h-screen">

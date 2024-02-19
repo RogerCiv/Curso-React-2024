@@ -16,6 +16,7 @@ const Payment = () => {
     navigate(-1)
   }
   const handleClickPay = () => {
+    console.log(object);
     Swal.fire({
       icon: 'success',
       title: `El total a pagar es : ${totalPagar.toFixed(2)}€`,
