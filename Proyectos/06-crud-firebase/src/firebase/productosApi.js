@@ -18,6 +18,20 @@ import {
 import { db } from "./firebase";
 // datos de la coleccion
 const productCollection = collection(db, "Crud-react-productos");
+const paymentCollection = collection(db, "Crud-react-pagos");
+
+
+// -- Guardar pagos --
+
+export const addPayment = async (paymentData) => {
+  try{
+    const docRef = await addDoc(paymentCollection, paymentData);
+
+    return docRef.id;
+  }catch(err){
+    console.log(err);
+  }
+}
 
 // -- Añadir productos ----
 

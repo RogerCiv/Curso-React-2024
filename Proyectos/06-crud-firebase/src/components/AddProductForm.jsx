@@ -36,7 +36,7 @@ const AddProductForm = ({setAdd}) => {
            setDescription('')
            setStock('')
            setUrl('')
-           setPrice()
+           setPrice('')
            setAdd(true)
         }catch(err){
             console.error("Error al anadir el producto", err)

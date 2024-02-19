@@ -18,7 +18,7 @@ const ShowProductTable = ({ add }) => {
 
   const handleClickPayment = () => {
     // const totalStock = getTotalStock(products);
-    navigate('/payment', { state: { stockTotal: precioTotal} });
+    navigate('/payment', { state: { products, totalPrice: precioTotal} });
   }
 
 const handleClickSort = () => {
@@ -56,6 +56,7 @@ const handleClickSort = () => {
       if (response.isConfirmed) {
         await deleteProduct(id)
         setProducts(products.filter(product => product.id !== id))
+        setPrecioTotal(products.reduce((acc, product) => acc += parseInt(product.price), 0))
       }
     } catch (err) {
       Swal.fire({
@@ -119,7 +120,7 @@ const handleClickSort = () => {
             </table>
             <div className='bg-gray-400 p-4 mt-4 flex justify-between items-center'>
               <span className='text-lg font-semibold'>Precio Total:</span>
-              <span className='text-lg'>{precioTotal}$ <span className='font-bold'>$</span></span>
+              <span className='text-lg'>{precioTotal}<span className='font-bold'>$</span></span>
               <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
               onClick={handleClickPayment}>Pagar</button>
             </div>
