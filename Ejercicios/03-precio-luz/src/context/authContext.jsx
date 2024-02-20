@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
     const [precioLuz, setPrecioLuz] = useState([]);
     const [user, setUser] = useState({});
     const [allUsers, setAllUsers] = useState([]);
-    const [isLogged, setIsLogged] = useState(false);
+  
 
     const values ={
         precioLuz,
@@ -27,8 +27,6 @@ export const AuthProvider = ({ children }) => {
         setUser,
         allUsers,
         setAllUsers,
-        isLogged,
-        setIsLogged
     }
   
     useEffect(() => {
@@ -53,6 +51,7 @@ export const AuthProvider = ({ children }) => {
       }
       fetchApiUser();
     }, []);
+
 
   return (
     <AuthContext.Provider value={values}>
