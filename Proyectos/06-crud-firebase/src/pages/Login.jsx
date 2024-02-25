@@ -1,24 +1,20 @@
 import React from 'react'
-import { useRef } from 'react'
-import { useEffect } from 'react'
+
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { signWithGoogle } from '../firebase/productosApi'
-import {  useAuthProduct } from '../context/authContextProduct'
+import { useAuthProduct } from '../context/authContextProduct'
 const Login = () => {
-  
-const [ error, setError ] = useState(null)
-const navigate = useNavigate()
-const { signInFirebase } = useAuthProduct()
+
+  const [error, setError] = useState(null)
+  const navigate = useNavigate()
+  const { signInFirebase } = useAuthProduct()
 
   const handleSingIn = async () => {
-    await signWithGoogle(signInFirebase,setError,navigate)
+    await signWithGoogle(signInFirebase, setError, navigate)
   }
-  
-  
-  useEffect(() => {
-   
-  }, [])
+
+
   return (
     <>
       <div className='flex flex-col min-h-screen justify-center items-center bg-gradient-to-b from-gray-200 via-gray-300 to-gray-500 '>

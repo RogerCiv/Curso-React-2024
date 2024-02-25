@@ -8,7 +8,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, }) => {
             <nav aria-label="Page navigation">
                 <ul className="flex gap-2">
                     {pageNumbers.map(number => (
-                        <a href="#" onClick={(e) => {
+                        <a key={number} href="#" onClick={(e) => {
                             e.preventDefault();
                             onPageChange(number);
                         }} className="page-link">

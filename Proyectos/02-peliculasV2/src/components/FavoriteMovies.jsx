@@ -12,7 +12,7 @@ const [favMovies, setFavMovies] = useState([])
      
     setFavMovies(JSON.parse(localStorage.getItem("favsMovies")) || [])
 
- },[favMovies])
+ },[])
 
 
 

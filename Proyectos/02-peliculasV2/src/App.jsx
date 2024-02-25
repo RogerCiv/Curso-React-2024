@@ -8,6 +8,7 @@ import About from "./pages/About"
 import ResultsPage from "./pages/ResultsPage"
 import SearchResultsContext from "./hooks/SearchResultsContext"
 import { useState } from "react"
+import { AuthProviderMovie } from "./context/authContextMovie"
 
 
 function App() {
@@ -39,9 +40,11 @@ function App() {
   ])
 
   return (
+    <AuthProviderMovie>
     <SearchResultsContext.Provider value={{ searchResults, setSearchResults }}>
       <RouterProvider router={router} />
     </SearchResultsContext.Provider>
+    </AuthProviderMovie>
     )
 }
 

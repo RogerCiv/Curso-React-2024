@@ -2,8 +2,11 @@ import React, { useState, useContext } from 'react';
 import { useDataApi } from '../hooks/useDataApi';
 import { useNavigate } from 'react-router-dom';
 import SearchResultsContext from  '../hooks/SearchResultsContext';
+import { useAuthMovie } from '../context/authContextMovie';
+
 
 const FormSearchMovie = () => {
+  const {movieCategories, updateMovieCategories} = useAuthMovie();
   const [searchTerm, setSearchTerm] = useState('');
   const { setSearchResults } = useContext(SearchResultsContext);
   const navigate = useNavigate();
@@ -16,11 +19,15 @@ const FormSearchMovie = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
+
     const searchValue = searchTerm.toLowerCase();
     if (searchValue.trim() !== '') {
       const filteredResults = data?.results.filter(movie => movie.title.toLowerCase().includes(searchValue));
+      console.log(filteredResults.map(movie => movie.genre_ids));
+      updateMovieCategories(filteredResults.map(movie => movie.genre_ids));
       setSearchResults(filteredResults || []);
       navigate('/results');
+     
     }
   }
 
@@ -32,6 +39,14 @@ const FormSearchMovie = () => {
     setSearchTerm("");
   }
   
+  // const saveGenreLocalStorage = (genre) => {
+  //   let arrayLS = []
+  //   if(localStorage.getItem('genre')){
+  //     arrayLS = JSON.parse(localStorage.getItem('genre'));
+  //   }
+  //   localStorage.setItem('genre', JSON.stringify(arrayLS.concat(genre)));
+
+  // }
 
   return (
     <>
