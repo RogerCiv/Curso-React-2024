@@ -2,13 +2,15 @@ import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { navLinks } from '../lib/NavLinks'
+import { useAuthMovie } from '../context/authContextMovie'
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false)	
+    const {theme, toggleTheme} = useAuthMovie();
   
   return (
    <>
-     <div className="bg-gray-800">
+     <div className={theme === 'light' ? "bg-yellow-300" : "bg-gray-800"}>
     <div className="mx-auto lg:max-w-6xl md:max-w-4xl px-4 sm:px-6 md:px-9 lg:px-8">
       <div className="flex items-center justify-between h-16">
         <div className="flex items-center gap-2">
@@ -25,6 +27,7 @@ const Header = () => {
                 {link.title}
               </Link>
             ))}
+            <button className='bg-cyan-400 rounded-md p-2 text-white' onClick={toggleTheme}>Cambiar tema</button>
           </div>
         </div>
         {/* hamburger button */}

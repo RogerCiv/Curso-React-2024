@@ -2,9 +2,11 @@ import React from 'react'
 import GitHubIcon from '../Icons/GitHubIcon'
 import LinkedInIcon from '../Icons/LinkedInIcon'
 import TwitterIcon from '../Icons/TwitterIcon'
+import { useAuthMovie } from '../context/authContextMovie'
 const Footer = () => {
+  const { theme } = useAuthMovie();
   return (
-    <footer className="fixed bottom-0 left-0 z-20 w-full  bg-white border-t border-gray-200   dark:bg-gray-800 dark:border-gray-600">
+    <footer className={`fixed bottom-0 left-0 z-20 w-full ${theme === 'light' ? "bg-yellow-300" : "bg-gray-800" }  `} >
     <div className="mx-auto w-full md:max-w-4xl lg:max-w-6xl p-4 py-4">
 
       <div className=" sm:flex  sm:items-center sm:justify-between ">

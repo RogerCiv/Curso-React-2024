@@ -5,7 +5,7 @@ const Recomendation = () => {
 const { movieCategories, updateMovieCategories } = useAuthMovie();
 const [recommendedMovies, setRecommendedMovies] = useState([]);
 // updateMovieCategories([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-console.log(movieCategories);
+// console.log(movieCategories);
 useEffect(() => {
     const fetchRecommendedMovies = async () => {
         // Combina todos los arrays internos en un solo array

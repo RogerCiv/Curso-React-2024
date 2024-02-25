@@ -14,6 +14,11 @@ export const AuthProviderMovie = ({ children }) => {
     return savedMovieCategories ? JSON.parse(savedMovieCategories) : [];
   });
 
+  const [theme, setTheme] = useState('light'); // [1]
+
+  const toggleTheme = () => {
+    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
   // Function to update movie categories
   const updateMovieCategories = (newCategory) => {
     setMovieCategories(prevCategories => [...prevCategories, newCategory]);
@@ -27,6 +32,8 @@ export const AuthProviderMovie = ({ children }) => {
   const authContextValue = {
     movieCategories,
     updateMovieCategories,
+    theme,
+    toggleTheme,
   };
 
   return (
