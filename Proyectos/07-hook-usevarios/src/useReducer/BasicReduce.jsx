@@ -16,7 +16,6 @@ function reducer(state,action) {
     }
 }
 const BasicReduce = () => {
-
     const [state, dispatch] = useReducer(reducer,initialState)
     // const reduce =  [state, dispatch] = useReducer(reduce,initialState)
     // console.log(reduce);

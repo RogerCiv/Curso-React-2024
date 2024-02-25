@@ -3,6 +3,7 @@ import { useLocalStorage } from "./customHooks/useLocalStorage"
 import Counter from "./useCallback/Counter"
 import UseMemoProductList from "./useMemo/UseMemoProductList"
 import BasicReduce from "./useReducer/BasicReduce"
+import FormUseReducer from "./useReducer/FormUseReducer"
 
 
 
@@ -24,6 +25,9 @@ function App() {
       <hr />
       <h2 className="text-2xl">UseReduce</h2>
       <BasicReduce />
+      <hr />
+      <h2 className="text-2xl">UseReduce  FORM</h2>
+      <FormUseReducer />
       <hr />
       <h2 className="text-2xl">customHooks</h2>
       <h3>Generar UUID</h3>
